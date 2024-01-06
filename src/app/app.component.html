@@ -1,0 +1,39 @@
+<button
+  (click)="toggleDrawerMode();">
+  Toggle drawer mode
+</button>
+
+<button
+  class="ml-4"
+  (click)="toggleDrawerOpen();">
+  Toggle drawer open
+</button>
+
+<div class="box">
+  <unstyled-drawer
+    [name]="'leftDrawer'"
+    [opened]="drawerOpened"
+    [mode]="drawerMode">
+    <div class="p-4">
+      Left drawer
+    </div>
+  </unstyled-drawer>
+
+  <div class="flex-auto bg-gray-100 p-4">
+    Some content
+  </div>
+
+  <!-- Right drawer must be positioned after the content
+
+      <unstyled-drawer
+          [name]="'leftDrawer'"
+          [opened]="true"
+          [position]="'right'"
+          [mode]="'side'">
+          <div class="p-4">
+              Right drawer
+          </div>
+      </unstyled-drawer>
+
+  -->
+</div>

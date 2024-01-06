@@ -1,0 +1,11 @@
+.relative {
+  position: relative;
+}
+
+.box {
+  max-width: 762px;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  min-height: 800px;
+}
