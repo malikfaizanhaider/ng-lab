@@ -12,5 +12,7 @@
   [cdkConnectedOverlayOpen]="isOpen"
   (backdropClick)="isOpen = false"
 >
-  <ng-content></ng-content>
+  <div [@openClose]="isOpen ? 'open' : 'closed'" tabindex="0" cdkFocusInitial>
+    <ng-content></ng-content>
+  </div>
 </ng-template>
