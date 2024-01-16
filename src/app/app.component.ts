@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import {UnstyledDrawerComponent} from "@unstyled/components/drawer/drawer.component";
+import {OverlayComponent} from "../@unstyled/components/overlay/overlay.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, UnstyledDrawerComponent],
+  imports: [CommonModule, RouterOutlet, UnstyledDrawerComponent, OverlayComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
