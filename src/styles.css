@@ -1,7 +1,19 @@
 @import '@angular/cdk/overlay-prebuilt.css';
 
 
+*, :before, :after {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: #e2e8f0;
+}
+
 html, body {
   margin: 0;
   padding: 0;
+  height: 100%;
+  min-height: 100%;
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+  background-color: rgb(241, 245, 249);
 }
