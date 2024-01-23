@@ -17,3 +17,7 @@ html, body {
   -moz-osx-font-smoothing: auto;
   background-color: rgb(241, 245, 249);
 }
+
+.cdk-visually-hidden {
+  display: none;
+}

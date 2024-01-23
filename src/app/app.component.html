@@ -14,8 +14,16 @@
       <div class="uns-header">
         <header>Header</header>
       </div>
-      <div class="usn-inner-container" cdkScrollable>
+      <div class="usn-inner-container" unsScrollbar>
         <div>
+          <app-overlay>
+            <ul>
+              <li *ngFor="let number of numbers">
+                {{ number }}
+              </li>
+            </ul>
+          </app-overlay>
+
           <ul>
             <li *ngFor="let number of numbers">
               {{ number }}

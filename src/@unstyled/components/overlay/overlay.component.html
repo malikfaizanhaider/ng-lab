@@ -1,18 +1,22 @@
-<!-- This button triggers the overlay and is it's origin -->
-<button (click)="openOverlay()" type="button" cdkOverlayOrigin  #trigger="cdkOverlayOrigin">
-  {{isOpen ? "Close" : "Open"}}
+<!-- Button to toggle the overlay -->
+<button (click)="toggleOverlay()" type="button" cdkOverlayOrigin #trigger="cdkOverlayOrigin">
+  {{ isOpen ? "Close Overlay" : "Open Overlay" }}
 </button>
 
-<!-- This template displays the overlay content and is connected to the button -->
+<!-- Overlay template -->
 <ng-template
   [cdkConnectedOverlayMinWidth]="200"
   cdkConnectedOverlay
   cdkConnectedOverlayPanelClass="overlay"
   [cdkConnectedOverlayOrigin]="trigger"
   [cdkConnectedOverlayOpen]="isOpen"
-  (backdropClick)="isOpen = false"
+  (backdropClick)="closeOverlay()"
 >
+  <!-- Overlay content -->
   <div [@openClose]="isOpen ? 'open' : 'closed'" tabindex="0" cdkFocusInitial>
     <ng-content></ng-content>
+
+    <!-- Button to close the overlay -->
+    <button (click)="closeOverlay()">Close Overlay</button>
   </div>
 </ng-template>
