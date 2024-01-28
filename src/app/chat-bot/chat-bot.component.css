@@ -1,0 +1,71 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.uns-page {
+  height: 100%;
+  position: relative;
+  overflow: auto;
+}
+
+.uns-container {
+  min-height: 100%;
+  display: flex;
+  flex: 1 1 auto;
+}
+
+.uns-aside {
+  display: block;
+  flex: 0 0 auto;
+}
+
+.uns-aside unstyled-drawer {
+  height: 100%;
+}
+
+.uns-main {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+.usn-inner-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+.usn-inner-container > div {
+  display: flex;
+  flex-direction: column;
+
+  position: absolute;
+  inset: 0;
+  overflow-y: auto !important;
+}
+
+.uns-header {
+  position: relative;
+  background-color: rgb(226, 232, 240);
+  border-bottom-color: rgb(203, 213, 225)
+}
+
+.uns-header header {
+  padding: 1rem;
+}
+
+.uns-footer {
+  border-top-color: rgb(203, 213, 225);
+  background-color: rgb(226, 232, 240);
+}
+
+.uns-footer textarea {
+  width: 100%;
+  margin: 0;
+}
+
+
+
+

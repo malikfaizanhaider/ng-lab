@@ -1,0 +1,40 @@
+<div class="uns-page">
+  <div class="uns-container">
+    <div class="uns-aside">
+      <unstyled-drawer
+        [name]="'rightDrawer'"
+        [opened]="true"
+        [position]="'right'"
+        [transparentOverlay]="false">
+        Aside
+      </unstyled-drawer>
+    </div>
+
+    <div class="uns-main">
+      <div class="uns-header">
+        <header>
+          Header
+        </header>
+      </div>
+      <div class="usn-inner-container">
+        <div>
+
+          <ul>
+            <li *ngFor="let number of numbers">
+              {{ number }}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="uns-footer">
+        <textarea autofocus></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
