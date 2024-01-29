@@ -25,7 +25,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/@unstyled/styles/vendors/normalize.scss",
+              "src/@unstyled/styles/styles.scss"
             ],
             "scripts": []
           },
@@ -84,12 +85,17 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/@unstyled/styles/styles.scss"
             ],
             "scripts": []
           }
         }
       }
+    }
+  },
+  "schematics": {
+    "@schematics/angular:component": {
+      "style": "scss"
     }
   },
   "cli": {

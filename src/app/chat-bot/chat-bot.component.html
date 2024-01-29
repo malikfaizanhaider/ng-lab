@@ -6,7 +6,11 @@
         [opened]="true"
         [position]="'right'"
         [transparentOverlay]="false">
-        Aside
+        <cdk-virtual-scroll-viewport itemSize="{{numbers}}" class="example-viewport">
+          <li *cdkVirtualFor="let number of numbers">
+            {{ number }}
+          </li>
+        </cdk-virtual-scroll-viewport>
       </unstyled-drawer>
     </div>
 
@@ -18,7 +22,6 @@
       </div>
       <div class="usn-inner-container">
         <div>
-
           <ul>
             <li *ngFor="let number of numbers">
               {{ number }}
@@ -27,7 +30,14 @@
         </div>
       </div>
       <div class="uns-footer">
-        <textarea autofocus></textarea>
+        <div class="textarea-container">
+          <textarea
+            placeholder="Search for..."
+            cdkTextareaAutosize
+            cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="3"
+            class="cdk-text-field-autofill-monitored" autofocus></textarea>
+        </div>
       </div>
     </div>
   </div>

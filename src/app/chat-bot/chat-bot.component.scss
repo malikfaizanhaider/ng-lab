@@ -63,9 +63,19 @@
 
 .uns-footer textarea {
   width: 100%;
-  margin: 0;
 }
 
+.textarea-container {
+  display: flex;
+}
+
+.example-viewport {
+  width: 100%;
+}
+
+.example-item {
+  height: 50px;
+}
 
 
 

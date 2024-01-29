@@ -2,6 +2,8 @@ import {Component} from '@angular/core';
 import {UnstyledDrawerComponent} from "@unstyled/components/drawer";
 import {UnsScrollbarDirective} from "@unstyled/directives/scrollbar";
 import {NgForOf} from "@angular/common";
+import {CdkTextareaAutosize} from "@angular/cdk/text-field";
+import {CdkFixedSizeVirtualScroll, CdkVirtualForOf, CdkVirtualScrollViewport} from "@angular/cdk/scrolling";
 
 /**
  * This is a component for a chatbot.
@@ -14,15 +16,19 @@ import {NgForOf} from "@angular/common";
   imports: [
     UnstyledDrawerComponent,
     UnsScrollbarDirective,
-    NgForOf
+    NgForOf,
+    CdkTextareaAutosize,
+    CdkFixedSizeVirtualScroll,
+    CdkVirtualScrollViewport,
+    CdkVirtualForOf
   ],
   templateUrl: './chat-bot.component.html',
-  styleUrl: './chat-bot.component.css'
+  styleUrl: './chat-bot.component.scss'
 })
 export class ChatBotComponent {
 
   // An array of numbers from 1 to 100
-  numbers = Array.from({length: 100}, (_, i) => i + 1);
+  numbers = Array.from({length: 50}, (_, i) => i + 1);
 
   // The mode of the drawer, can be 'side' or 'over'
   drawerMode = 'side';

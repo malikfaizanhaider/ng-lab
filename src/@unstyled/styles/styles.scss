@@ -1,0 +1,17 @@
+@use "light";
+@use "vendors/normalize";
+
+
+html, body {
+  height: 100%;
+  font: 16px var(--uns-font-sans);
+  font-weight: var(--uns-font-weight-normal);
+  background-color: var(--docs-background-color);
+  line-height: var(--uns-line-height-normal);
+  color: var(--uns-color-neutral-900);
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
