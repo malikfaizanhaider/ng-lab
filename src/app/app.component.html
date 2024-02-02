@@ -1,1 +1,19 @@
-<app-chat-bot></app-chat-bot>
+<div class="uns-page">
+  <div class="uns-container">
+    <div class="uns-aside">
+      <unstyled-drawer
+        [name]="'rightDrawer'"
+        [opened]="true"
+        [position]="'right'"
+        [transparentOverlay]="false">
+        <div class="example-menu" cdkMenu>
+          <button class="example-menu-item" [routerLinkActive]="'active'" routerLink="home" cdkMenuItem>Home</button>
+          <button class="example-menu-item" [routerLinkActive]="'active'" routerLink="apps/chatbot" cdkMenuItem>ChatBoat</button>
+        </div>
+      </unstyled-drawer>
+    </div>
+    <div class="uns-main">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
