@@ -1,0 +1,32 @@
+body unstyled-splash-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #F9FAFB;
+  color: #F9FAFB;
+  z-index: 999999;
+  pointer-events: none;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 400ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body unstyled-splash-screen img {
+  width: 256px;
+  max-width: 256px;
+}
+
+body:not(.unstyled-splash-screen-hidden) {
+  overflow: hidden;
+}
+
+body.unstyled-splash-screen-hidden unstyled-splash-screen {
+  visibility: hidden;
+  opacity: 0;
+}
