@@ -1,1 +1,28 @@
-<p>home works!</p>
+<!--<table>
+  <ng-container *ngTemplateOutlet="renderTable; context: { $implicit: data, level: 0 }"></ng-container>
+</table>
+
+<ng-template #renderTable let-items let-level="level">
+  <ng-container *ngFor="let item of items">
+    <tr [ngClass]="'level-' + level">
+      <td>{{ item.name }}</td>
+      &lt;!&ndash; Add additional columns for other properties as needed &ndash;&gt;
+    </tr>
+    <ng-container *ngIf="item.nav_children && item.nav_children.length">
+      <ng-container *ngTemplateOutlet="renderTable; context: { $implicit: item.nav_children, level: level + 1 }"></ng-container>
+    </ng-container>
+  </ng-container>
+</ng-template>-->
+
+<div class="ag-theme-quartz">
+<ag-grid-angular
+  style="width: 100%; height: 500px;"
+  class="ag-theme-quartz"
+  [rowData]="rowData"
+  [columnDefs]="columnDefs"
+  [treeData]="true"
+  [animateRows]="true"
+  [defaultColDef]="defaultColDef">
+</ag-grid-angular>
+</div>
+
