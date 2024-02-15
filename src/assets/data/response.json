@@ -15,7 +15,7 @@
       "last_updated_by_fname": "Super",
       "last_updated_by_lname": "Admin",
       "added_on": "2022-11-07 16:05:11",
-      "last_updated_on": "2024-02-07 11:29:50",
+      "last_updated_on": "2024-02-12 07:57:15",
       "hash_route": "dPOy2VRy",
       "nav_children": [
         {
@@ -51,26 +51,7 @@
               "added_on": "2022-11-07 16:05:11",
               "last_updated_on": "2024-02-06 12:01:41",
               "hash_route": "LM9BdOBz",
-              "nav_children": [
-                {
-                  "numbr": "bwVEpZOJ",
-                  "name": "Faizan Haider",
-                  "perma_link": "Faizan Haider",
-                  "nav_type": 0,
-                  "nav_cat": 0,
-                  "title": "malikfaizanhaider@gmail.com",
-                  "nav_parent": "i2c's Payments and Banking Platform",
-                  "is_active": 1,
-                  "created_by_fname": "Super",
-                  "created_by_lname": "Admin",
-                  "last_updated_by_fname": null,
-                  "last_updated_by_lname": null,
-                  "added_on": "2024-02-07 04:56:06",
-                  "last_updated_on": "2024-02-07 04:56:06",
-                  "hash_route": "JxOwvXGY",
-                  "nav_children": []
-                }
-              ]
+              "nav_children": []
             },
             {
               "numbr": "neOmJVdG",
@@ -343,7 +324,7 @@
       "last_updated_by_fname": null,
       "last_updated_by_lname": null,
       "added_on": "2022-11-07 16:05:11",
-      "last_updated_on": "2024-02-07 11:29:50",
+      "last_updated_on": "2024-02-12 07:57:15",
       "hash_route": "y89PyXrJ",
       "nav_children": [
         {
@@ -1899,7 +1880,7 @@
       "last_updated_by_fname": null,
       "last_updated_by_lname": null,
       "added_on": "2022-11-07 16:05:11",
-      "last_updated_on": "2024-02-07 11:29:50",
+      "last_updated_on": "2024-02-12 07:57:15",
       "hash_route": "7vVpy90A",
       "nav_children": [
         {
@@ -2733,7 +2714,7 @@
       "last_updated_by_fname": null,
       "last_updated_by_lname": null,
       "added_on": "2022-11-07 16:05:11",
-      "last_updated_on": "2024-02-07 11:29:50",
+      "last_updated_on": "2024-02-12 07:57:15",
       "hash_route": "0POom9y8",
       "nav_children": []
     },
@@ -2751,7 +2732,7 @@
       "last_updated_by_fname": null,
       "last_updated_by_lname": null,
       "added_on": "2022-11-07 16:05:11",
-      "last_updated_on": "2024-02-07 11:29:50",
+      "last_updated_on": "2024-02-12 07:57:15",
       "hash_route": "bWOn6OLK",
       "nav_children": [
         {
@@ -2883,5 +2864,5 @@
       ]
     }
   ],
-  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBpcy1zZXJ2ZXItcWEubXljYXJkcGxhY2UuY29tXC9hcGlcL2dldEFsbE5hdmlnYXRpb25zIiwiaWF0IjoxNzA3MzA1ODg1LCJleHAiOjE3MDczMDk0ODUsIm5iZiI6MTcwNzMwNTg4NSwianRpIjoiZ1FLRDB5N1dNRTA1bGs2RyIsInN1YiI6NTgsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJ1c2VyX2luZm8iOnsidXNlcl9mbmFtZSI6IlN1cGVyIiwidXNlcl9lbWFpbCI6InN1cGVyYWRtaW5AaTJjLmFwaXMiLCJhZG1pbiI6dHJ1ZSwic3VwZXJfYWRtaW4iOnRydWV9LCJpc19sb2dpbl9yZW1lbWJlciI6MH0.ro4W61yFsVkJy45dRhhy04mTbEQC5jdqLYBxGe7wJiw"
+  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczpcL1wvYXBpcy1zZXJ2ZXItcWEubXljYXJkcGxhY2UuY29tXC9hcGlcL2dldEFsbE5hdmlnYXRpb25zIiwiaWF0IjoxNzA3NzMxMTgxLCJleHAiOjE3MDc3MzQ3ODEsIm5iZiI6MTcwNzczMTE4MSwianRpIjoiRXFmQUd1a1RYMlplazJkRiIsInN1YiI6NTgsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJ1c2VyX2luZm8iOnsidXNlcl9mbmFtZSI6IlN1cGVyIiwidXNlcl9lbWFpbCI6InN1cGVyYWRtaW5AaTJjLmFwaXMiLCJhZG1pbiI6dHJ1ZSwic3VwZXJfYWRtaW4iOnRydWV9LCJpc19sb2dpbl9yZW1lbWJlciI6MH0.FpZL64B-M-Xf2QOwVgSWPS3YCKEJNoUtpwdUHz2v_c4"
 }
