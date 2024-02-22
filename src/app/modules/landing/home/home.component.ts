@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
 import {HomeService} from "./home.service";
 import {Daum, NavChildren, Root} from "./types";
 import {isPlatformBrowser, NgClass, NgForOf, NgIf, NgTemplateOutlet} from "@angular/common";
@@ -24,13 +24,14 @@ import {FuseConfirmationService} from "@unstyled/services/confirmation/confirmat
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
-  providers: [HomeService]
+  providers: [HomeService],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent implements OnInit {
   data: any;
   gridOptions: any;
   deleteRow: boolean = false;
-  selection: string | null = null;
+  selection: Daum[] = [];
 
   defaultColDef = {
     flex: 1,
@@ -48,10 +49,12 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+
     if (isPlatformBrowser(this.platformId)) {
       this.getData();
-      this.gridOptions.getGridOption();
+      this.gridOptions.getGridOption('api').sizeColumnsToFit();
     }
+
   }
 
   getData() {
@@ -180,9 +183,12 @@ export class HomeComponent implements OnInit {
   }
 
   onSelectionChanged(event: any) {
-    const selectedRows = this.gridOptions.api.getSelectedRows(event);
-    this.getRowData(selectedRows);
+    if (this.gridOptions && this.gridOptions.api) {
+      const selectedRows = this.gridOptions.api.getSelectedRows(event);
+      this.getRowData(selectedRows);
+    }
   }
+
 
   /**
    * @method getRowData
@@ -190,7 +196,7 @@ export class HomeComponent implements OnInit {
    * @returns {string}
    * @description Gets the data of the selected row.
    */
-  getRowData(data?: any): string {
+  getRowData(data?: any): Daum[] {
     this.selection = data;
     console.log('Selected Row Data:', this.selection);
     return this.selection;
