@@ -1,5 +1,5 @@
 import {provideHttpClient, withInterceptors} from '@angular/common/http';
-import {ENVIRONMENT_INITIALIZER, EnvironmentProviders, inject, Provider} from '@angular/core';
+import {ENVIRONMENT_INITIALIZER, EnvironmentProviders, importProvidersFrom, inject, Provider} from '@angular/core';
 
 import {UnstyledConfig} from '@unstyled/services/config';
 import {UNSTYLED_CONFIG} from '@unstyled/services/config/config.constants';
@@ -8,6 +8,8 @@ import {UnstyledMediaWatcherService} from '@unstyled/services/media-watcher';
 import {UnstyledPlatformService} from '@unstyled/services/platform';
 import {UnstyledUtilsService} from '@unstyled/services/utils';
 import {UnstyledSplashScreenService} from "@unstyled/services/splash-screen";
+import {SlDialog} from "@shoelace-style/shoelace";
+import {FuseConfirmationService} from "./services/confirmation/confirmation.service";
 
 
 export type UnstyledProviderConfig = {
@@ -23,7 +25,12 @@ export const provideUnstyled = (config: UnstyledProviderConfig): Array<Provider 
       provide: UNSTYLED_CONFIG,
       useValue: config?.unstyled ?? {},
     },
-
+    importProvidersFrom(SlDialog),
+    {
+      provide: ENVIRONMENT_INITIALIZER,
+      useValue: () => inject(FuseConfirmationService),
+      multi: true,
+    },
     provideHttpClient(withInterceptors([unstyledLoadingInterceptor])),
     {
       provide: ENVIRONMENT_INITIALIZER,
@@ -41,9 +48,9 @@ export const provideUnstyled = (config: UnstyledProviderConfig): Array<Provider 
       multi: true,
     },
     {
-      provide : ENVIRONMENT_INITIALIZER,
+      provide: ENVIRONMENT_INITIALIZER,
       useValue: () => inject(UnstyledSplashScreenService),
-      multi   : true,
+      multi: true,
     },
     {
       provide: ENVIRONMENT_INITIALIZER,

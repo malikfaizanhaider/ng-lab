@@ -16,9 +16,7 @@
 
 
 <div class="ag-theme-quartz">
-  <button *ngIf="deleteRow">
-
-  </button>
+  <button (click)="confirm()">Show Confirmation Dialog</button>
 <ag-grid-angular
   style="width: 100%; height: 500px;"
   class="ag-theme-alpine"

@@ -6,6 +6,7 @@ import {CdkCellDef, CdkHeaderCellDef, CdkRowDef, CdkTable} from "@angular/cdk/ta
 import {AgGridAngular} from "ag-grid-angular";
 import {catchError, of} from "rxjs";
 import {RowSelectedEvent} from "ag-grid-community";
+import {FuseConfirmationService} from "@unstyled/services/confirmation/confirmation.service";
 
 @Component({
   selector: 'app-home',
@@ -25,7 +26,7 @@ import {RowSelectedEvent} from "ag-grid-community";
   styleUrl: './home.component.scss',
   providers: [HomeService]
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnInit {
   data: any;
   gridOptions: any;
   deleteRow: boolean = false;
@@ -40,6 +41,7 @@ export class HomeComponent implements OnInit{
   };
 
   constructor(private homeService: HomeService,
+              private _fuseConfirmationService: FuseConfirmationService,
               @Inject(PLATFORM_ID) private platformId: any,) {
     this.onRowSelected = this.onRowSelected.bind(this);
     this.onSelectionChanged = this.onSelectionChanged.bind(this);
@@ -174,7 +176,7 @@ export class HomeComponent implements OnInit{
 
   onRowSelected(event: any) {
     const selectedRow = event.node.data; // Access the selected row data
-   this.getRowData(selectedRow)
+    this.getRowData(selectedRow)
   }
 
   onSelectionChanged(event: any) {
@@ -210,5 +212,18 @@ export class HomeComponent implements OnInit{
 
     calculate(data);
     return levels;
+  }
+
+  confirm() {
+    // Open the confirmation dialog
+    const confirmation = this._fuseConfirmationService.open({
+      title: 'Delete product',
+      message: 'Are you sure you want to remove this product? This action cannot be undone!',
+      actions: {
+        confirm: {
+          label: 'Delete',
+        },
+      },
+    });
   }
 }

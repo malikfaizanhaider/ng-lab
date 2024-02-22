@@ -2,6 +2,8 @@
 @use "vendors/normalize";
 @import "ag-grid-community/styles/ag-grid.min.css";
 @import "ag-grid-community/styles/ag-theme-alpine.css";
+@import "@shoelace-style/shoelace/dist/themes/light.css";
+@import "@angular/cdk/overlay-prebuilt.css";
 
 html, body {
   height: 100%;
