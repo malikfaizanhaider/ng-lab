@@ -55,7 +55,7 @@ fuse-vertical-navigation {
                 > fuse-vertical-navigation-basic-item {
 
                     .fuse-vertical-navigation-item-wrapper {
-                        margin: 4px 8px 0 8px;
+                        margin: 0.25rem 0.5rem 0 0.5rem;
 
                         .fuse-vertical-navigation-item {
                             flex-direction: column;
@@ -68,7 +68,7 @@ fuse-vertical-navigation {
                             }
 
                             .fuse-vertical-navigation-item-title-wrapper {
-                                margin-top: 8px;
+                                margin-top: 0.5rem;
 
                                 .fuse-vertical-navigation-item-title {
                                     font-size: 12px;

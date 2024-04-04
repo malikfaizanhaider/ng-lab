@@ -25,7 +25,7 @@
               "src/assets"
             ],
             "styles": [
-              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "@angular/cdk/overlay-prebuilt.css",
               "src/@unstyled/styles/vendors/normalize.scss",
               "src/@unstyled/styles/styles.scss"
             ],

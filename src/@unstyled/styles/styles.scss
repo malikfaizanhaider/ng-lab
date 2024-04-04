@@ -1,13 +1,9 @@
 @use "light";
-@use "vendors/normalize";
-@import "ag-grid-community/styles/ag-grid.min.css";
-@import "ag-grid-community/styles/ag-theme-alpine.css";
-@import "@shoelace-style/shoelace/dist/themes/light.css";
-@import "@angular/cdk/overlay-prebuilt.css";
+
 
 html, body {
   height: 100%;
-  font: 16px var(--uns-font-sans);
+  font: .833vw var(--uns-font-sans);
   font-weight: var(--uns-font-weight-normal);
   background-color: var(--docs-background-color);
   line-height: var(--uns-line-height-normal);
@@ -17,7 +13,6 @@ html, body {
   overflow-x: hidden;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+  font-variation-settings: "slnt" 0, "wght" 550;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -282,7 +282,7 @@ fuse-vertical-navigation {
     fuse-vertical-navigation-aside-item,
     fuse-vertical-navigation-basic-item,
     fuse-vertical-navigation-collapsable-item {
-        margin-bottom: 4px;
+        margin-bottom: 0.25rem;
 
         .fuse-vertical-navigation-item {
             cursor: pointer;
@@ -309,7 +309,7 @@ fuse-vertical-navigation {
                 .fuse-vertical-navigation-item-badge {
 
                     + .fuse-vertical-navigation-item-arrow {
-                        margin-left: 8px;
+                        margin-left: 0.5rem;
                     }
                 }
 

@@ -9,7 +9,7 @@ import {UnstyledPlatformService} from '@unstyled/services/platform';
 import {UnstyledUtilsService} from '@unstyled/services/utils';
 import {UnstyledSplashScreenService} from "@unstyled/services/splash-screen";
 import {SlDialog} from "@shoelace-style/shoelace";
-import {FuseConfirmationService} from "./services/confirmation/confirmation.service";
+import {FuseConfirmationService} from "@unstyled/services/confirmation/confirmation.service";
 
 
 export type UnstyledProviderConfig = {
