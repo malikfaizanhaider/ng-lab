@@ -6,68 +6,73 @@ import {map, Observable, ReplaySubject, switchMap} from 'rxjs';
 
 @Injectable({providedIn: 'root'})
 export class UnstyledMediaWatcherService {
-  private _onMediaChange: ReplaySubject<{ matchingAliases: string[]; matchingQueries: any }> = new ReplaySubject<{
-    matchingAliases: string[];
-    matchingQueries: any
-  }>(1);
+  /**
+   * A ReplaySubject that emits an event when the screen size matches a predefined breakpoint.
+   * @private
+   */
+  private _onMediaChange: ReplaySubject<{ matchingAliases: string[]; matchingQueries: any }> =
+    new ReplaySubject<{ matchingAliases: string[]; matchingQueries: any }>(1);
 
   /**
-   * Constructor
+   * Constructor for the DocsMediaWatcherService.
+   * @constructor
+   * @param {BreakpointObserver} _breakpointObserver - An instance of BreakpointObserver to observe changes in screen size.
    */
-  constructor(
-    private _breakpointObserver: BreakpointObserver,
-    private _unstyledConfigService: UnstyledConfigService,
-  ) {
-    this._unstyledConfigService.config$.pipe(
-      map(config => fromPairs(Object.entries(config.screens).map(([alias, screen]) => ([alias, `(min-width: ${screen})`])))),
-      switchMap(screens => this._breakpointObserver.observe(Object.values(screens)).pipe(
-        map((state) => {
-          // Prepare the observable values and set their defaults
-          const matchingAliases: string[] = [];
-          const matchingQueries: any = {};
+  constructor(private _breakpointObserver: BreakpointObserver) {
+    const defaultScreens = {
+      small: '(min-width: 600px)',
+      medium: '(min-width: 960px)',
+      large: '(min-width: 1280px)',
+      xl: '(min-width: 1440px)',
+    };
 
-          // Get the matching breakpoints and use them to fill the subject
-          const matchingBreakpoints = Object.entries(state.breakpoints).filter(([query, matches]) => matches) ?? [];
-          for (const [query] of matchingBreakpoints) {
-            // Find the alias of the matching query
-            const matchingAlias = Object.entries(screens).find(([alias, q]) => q === query)[0];
+    const defaultScreensQueries = fromPairs(
+      Object.entries(defaultScreens).map(([alias, screen]) => [alias, screen])
+    );
 
-            // Add the matching query to the observable values
-            if (matchingAlias) {
-              matchingAliases.push(matchingAlias);
-              matchingQueries[matchingAlias] = query;
-            }
+    this._breakpointObserver.observe(Object.values(defaultScreensQueries)).pipe(
+      map((state) => {
+        const matchingAliases: string[] = [];
+        const matchingQueries: any = {};
+
+        const matchingBreakpoints = Object.entries(state.breakpoints).filter(
+          ([query, matches]) => matches
+        ) ?? [];
+
+        for (const [query] of matchingBreakpoints) {
+
+          const matchingAlias = Object.entries(defaultScreensQueries).find(
+            ([alias, q]) => q === query
+          )?.[0];
+
+
+          if (matchingAlias) {
+            matchingAliases.push(matchingAlias);
+            matchingQueries[matchingAlias] = query;
           }
+        }
 
-          // Execute the observable
-          this._onMediaChange.next({
-            matchingAliases,
-            matchingQueries,
-          });
-        }),
-      )),
+        // Execute the observable
+        this._onMediaChange.next({
+          matchingAliases,
+          matchingQueries,
+        });
+      })
     ).subscribe();
   }
 
-  // -----------------------------------------------------------------------------------------------------
-  // @ Accessors
-  // -----------------------------------------------------------------------------------------------------
-
   /**
-   * Getter for _onMediaChange
+   * Getter for _onMediaChange.
+   * @returns {Observable<{ matchingAliases: string[]; matchingQueries: any }>} - An Observable that emits an event when the screen size matches a predefined breakpoint.
    */
   get onMediaChange$(): Observable<{ matchingAliases: string[]; matchingQueries: any }> {
     return this._onMediaChange.asObservable();
   }
 
-  // -----------------------------------------------------------------------------------------------------
-  // @ Public methods
-  // -----------------------------------------------------------------------------------------------------
-
   /**
-   * On media query change
-   *
-   * @param query
+   * Method to observe changes in a specific media query.
+   * @param {string | string[]} query - The media query or queries to observe.
+   * @returns {Observable<BreakpointState>} - An Observable that emits an event when the screen size matches the provided media query.
    */
   onMediaQueryChange$(query: string | string[]): Observable<BreakpointState> {
     return this._breakpointObserver.observe(query);

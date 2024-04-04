@@ -1,22 +1,37 @@
 <div class="uns-page">
-  <div class="uns-container">
-    <div class="uns-aside">
-      <unstyled-drawer
-        [name]="'rightDrawer'"
-        [opened]="true"
-        [position]="'right'"
-        [transparentOverlay]="false">
-        <div class="example-menu" cdkMenu>
-          <button class="example-menu-item" [routerLinkActive]="'active'" routerLink="home" cdkMenuItem>Home</button>
-          <button class="example-menu-item" [routerLinkActive]="'active'" routerLink="apps/chatbot" cdkMenuItem>ChatBoat</button>
-          <button class="example-menu-item" [routerLinkActive]="'active'" routerLink="auth/login" cdkMenuItem>Login</button>
-          <button class="example-menu-item" [routerLinkActive]="'active'" routerLink="auth/registration" cdkMenuItem>Registration</button>
-          <button class="example-menu-item" [routerLinkActive]="'active'" routerLink="auth/forgot-password" cdkMenuItem>Forgot Password</button>
-        </div>
-      </unstyled-drawer>
+  <div class="uns-container c1">
+    <div class="header">
+      <header>Header</header>
     </div>
-    <div class="uns-main">
-      <router-outlet></router-outlet>
+    <div class="uns-container c2">
+      <div class="uns-aside">
+        <unstyled-drawer
+          [fixed]="true"
+          [opened]="drawerOpened"
+          [mode]="drawerMode">
+          <div class="example-menu" cdkMenu>
+            <button class="example-menu-item" [routerLinkActive]="'active'" routerLink="home" cdkMenuItem>Home</button>
+            <button class="example-menu-item" [routerLinkActive]="'active'" routerLink="apps/chatbot" cdkMenuItem>ChatBoat</button>
+            <button class="example-menu-item" [routerLinkActive]="'active'" routerLink="auth/login" cdkMenuItem>Login</button>
+            <button class="example-menu-item" [routerLinkActive]="'active'" routerLink="auth/registration" cdkMenuItem>Registration</button>
+            <button class="example-menu-item" [routerLinkActive]="'active'" routerLink="auth/forgot-password" cdkMenuItem>Forgot Password</button>
+            <button class="example-menu-item" [routerLinkActive]="'active'" routerLink="lab/form" cdkMenuItem>Forms</button>
+          </div>
+        </unstyled-drawer>
+      </div>
+      <div class="uns-main">
+        <button
+          (click)="toggleDrawerMode();">
+          {{ drawerMode === 'over' ? 'Drawer mode: over' : 'Drawer mode: side'}}
+        </button>
+
+        <button
+          class="ml-4"
+          (click)="toggleDrawerOpen();">
+          {{ drawerOpened ? 'Drawer opened' : 'Drawer closed'}}
+        </button>
+        <router-outlet></router-outlet>
+      </div>
     </div>
   </div>
 </div>

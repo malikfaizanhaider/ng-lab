@@ -10,47 +10,46 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideAnimations(),
     provideHttpClient(),
-    provideRouter(routes,
-      withPreloading(PreloadAllModules),
-      withInMemoryScrolling({scrollPositionRestoration: 'enabled'})),
+    provideRouter(routes, withPreloading(PreloadAllModules), withInMemoryScrolling({ scrollPositionRestoration: 'enabled' })),
     provideUnstyled({
-      unstyled: {
-        layout: 'classy',
-        scheme: 'light',
-        screens: {
-          sm: '600px',
-          md: '960px',
-          lg: '1280px',
-          xl: '1440px',
+        unstyled: {
+            layout: 'classy',
+            scheme: 'light',
+            screens: {
+                sm: '600px',
+                md: '960px',
+                lg: '1280px',
+                xl: '1440px',
+            },
+            theme: 'theme-default',
+            themes: [
+                {
+                    id: 'theme-default',
+                    name: 'Default',
+                },
+                {
+                    id: 'theme-brand',
+                    name: 'Brand',
+                },
+                {
+                    id: 'theme-teal',
+                    name: 'Teal',
+                },
+                {
+                    id: 'theme-rose',
+                    name: 'Rose',
+                },
+                {
+                    id: 'theme-purple',
+                    name: 'Purple',
+                },
+                {
+                    id: 'theme-amber',
+                    name: 'Amber',
+                },
+            ],
         },
-        theme: 'theme-default',
-        themes: [
-          {
-            id: 'theme-default',
-            name: 'Default',
-          },
-          {
-            id: 'theme-brand',
-            name: 'Brand',
-          },
-          {
-            id: 'theme-teal',
-            name: 'Teal',
-          },
-          {
-            id: 'theme-rose',
-            name: 'Rose',
-          },
-          {
-            id: 'theme-purple',
-            name: 'Purple',
-          },
-          {
-            id: 'theme-amber',
-            name: 'Amber',
-          },
-        ],
-      },
-    })
-  ]
+    }),
+    provideAnimations()
+]
 };

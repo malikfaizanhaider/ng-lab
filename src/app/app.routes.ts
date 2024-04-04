@@ -26,5 +26,10 @@ export const routes: Routes = [
       {path: 'nav', loadChildren: () => import('app/cms/nav/nav.routs')},
       {path: 'content', loadChildren: () => import('app/cms/content/content.routs')},
     ]
+  },
+  {
+    path: 'lab', children: [
+      {path: 'form', loadChildren: () => import('app/modules/playground/form/form.routes')},
+    ]
   }
 ];

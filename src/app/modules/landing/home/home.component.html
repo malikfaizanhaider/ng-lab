@@ -1,26 +1,2 @@
-<!--<table>
-  <ng-container *ngTemplateOutlet="renderTable; context: { $implicit: rowData, level: 0 }"></ng-container>
-</table>
-
-<ng-template #renderTable let-items let-level="level">
-  <ng-container *ngFor="let item of items">
-    <tr [ngClass]="'level-' + level">
-      <td>{{ item.name }}</td>
-      &lt;!&ndash; Add additional columns for other properties as needed &ndash;&gt;
-    </tr>
-    <ng-container *ngIf="item.nav_children && item.nav_children.length">
-      <ng-container *ngTemplateOutlet="renderTable; context: { $implicit: item.nav_children, level: level + 1 }"></ng-container>
-    </ng-container>
-  </ng-container>
-</ng-template>-->
-
-
-<div class="ag-theme-quartz">
-  <button (click)="confirm()">Show Confirmation Dialog</button>
-<ag-grid-angular
-  style="width: 100%; height: 500px;"
-  class="ag-theme-alpine"
-  [gridOptions]="gridOptions">
-</ag-grid-angular>
-</div>
+sadad
 

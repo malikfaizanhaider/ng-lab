@@ -1,0 +1,45 @@
+{{ form.value | json }}
+
+<p>{{ fields.length }} out of 53 tags</p>
+
+<form [formGroup]="form">
+  <ng-container formArrayName="fields" *ngFor="let field of fields.controls; let i = index">
+    <sl-details
+      [open]="true"
+      [formGroupName]="i" summary="Type: {{tagType}}">
+
+      <div>
+        <div>
+          <sl-select
+            hoist
+            label="Tag Type:"
+            (sl-change)="onTagTypeChange($event, i)"
+            ngDefaultControl formControlName="tag_type">
+            <sl-option *ngFor="let tagType of tagTypes" [value]="tagType">{{ tagType }}</sl-option>
+          </sl-select>
+          <ng-container *ngIf="field.get('tag_type').value === 'other'">
+            <sl-input
+              ngDefaultControl
+              label="Other Type" formControlName="tag_type_other" type="text"></sl-input>
+          </ng-container>
+          <sl-input hidden formControlName="number" ngDefaultControl></sl-input>
+        </div>
+
+        <div>
+          <sl-input label="Description" ngDefaultControl formControlName="tag_descr" type="text"></sl-input>
+        </div>
+      </div>
+
+      <button (click)="deleteField(i)">Delete</button>
+    </sl-details>
+  </ng-container>
+
+  <button (click)="addField()">Add</button>
+
+  <sl-button
+    size="small"
+    variant="primary"
+    [disabled]="form.invalid || fields.length === 0"
+    type="submit" (click)="onSubmit()">Submit
+  </sl-button>
+</form>
