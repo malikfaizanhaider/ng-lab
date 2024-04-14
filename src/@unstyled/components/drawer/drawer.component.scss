@@ -1,8 +1,13 @@
 /* Variables */
 :root {
+  --unstyled-drawer-bg: var(--uns-color-neutral-0);
   --unstyled-drawer-width: 20rem;
   --unstyled-drawer-shadow: 0 0.125rem 0.5rem 0 rgba(0, 0, 0, .35);
   --unstyled-drawer-z-index: 300;
+  --unstyled-drawer-border-inline-statrt: none;
+  --unstyled-drawer-border-inline-end: none;
+  --unstyled-drawer-border-block-start: none;
+  --unstyled-drawer-border-block-end: none;
 }
 
 unstyled-drawer {
@@ -15,6 +20,13 @@ unstyled-drawer {
   max-width: var(--unstyled-drawer-width);
   z-index: var(--unstyled-drawer-z-index);
   box-shadow: var(--unstyled-drawer-shadow);
+  -webkit-box-shadow: var(--unstyled-drawer-shadow);
+  -moz-box-shadow: var(--unstyled-drawer-shadow);
+  border-inline-start: var(--unstyled-drawer-border-inline-statrt);
+  border-inline-end: var(--unstyled-drawer-border-inline-end);
+  border-block-start: var(--unstyled-drawer-border-block-start);
+  border-block-end: var(--unstyled-drawer-border-block-end);
+  background-color: var(--unstyled-drawer-bg);
 
   /* Animations */
   &.unstyled-drawer-animations-enabled {

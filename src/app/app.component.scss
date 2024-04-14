@@ -5,14 +5,45 @@
   height: 100%;
 }
 
+.uns-nav-drawer {
+  --unstyled-drawer-shadow: none;
+  --unstyled-drawer-border-inline-end: 1px solid var(--uns-color-gray-200);
+  --unstyled-drawer-z-index: 500;
+}
+
+
+
+.uns-nav-drawer-header {
+  padding: 1rem;
+  padding-block-end: 0;
+}
+
 .uns-page {
   height: 100%;
   position: relative;
   overflow: auto;
 }
 
-.header {
+.uns-app-header {
   padding: 1rem;
+  box-shadow: none;
+  border-block-end: 1px solid var(--uns-color-gray-200);
+  display: flex;
+  align-items: center;
+
+  header {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .uns-app-header-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+
 }
 
 .uns-container {

@@ -1,18 +1,37 @@
 <div class="uns-page">
   <div class="uns-container c1">
-    <div class="header">
-      <header>Header</header>
+    <div class="uns-app-header">
+      <header>
+        <div class="uns-app-header-brand">
+          Header
+        </div>
+        <div class="uns-app-header-actions">
+          <sl-button
+            size="small"
+            (click)="toggleDrawerMode();">
+            {{ drawerMode === 'over' ? 'Drawer mode: over' : 'Drawer mode: side'}}
+          </sl-button>
+
+          <sl-button
+            size="small"
+            class="ml-4"
+            (click)="toggleDrawerOpen()">
+            {{ drawerOpened ? 'Drawer opened' : 'Drawer closed'}}
+          </sl-button>
+        </div>
+      </header>
     </div>
     <div class="uns-container c2">
       <div class="uns-aside">
         <unstyled-drawer
+          class="uns-nav-drawer"
           [fixed]="true"
           [opened]="drawerOpened"
           [mode]="isScreenSmall ? 'over' : drawerMode"
           (openedChanged)="drawerOpenedChanged($event)">
 
           <div drawer-header>
-            <div>
+            <div class="uns-nav-drawer-header">
               <sl-input name="Search" placeholder="Search" />
             </div>
           </div>
