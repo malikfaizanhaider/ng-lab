@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, CUSTOM_ELEMENTS_SCHEMA, OnDestroy, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {Navigation, RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {CdkFixedSizeVirtualScroll, CdkVirtualForOf, CdkVirtualScrollViewport} from "@angular/cdk/scrolling";
@@ -7,10 +7,12 @@ import {CdkMenu, CdkMenuItem} from "@angular/cdk/menu";
 import {FuseVerticalNavigationComponent, FuseNavigationService} from '@unstyled/components/navigation';
 import {
   FuseVerticalNavigationGroupItemComponent
-} from "../@unstyled/components/navigation/vertical/components/group/group.component";
+} from "@unstyled/components/navigation/vertical/components/group/group.component";
 import {
   FuseVerticalNavigationBasicItemComponent
-} from "../@unstyled/components/navigation/vertical/components/basic/basic.component";
+} from "@unstyled/components/navigation/vertical/components/basic/basic.component";
+import {UnstyledMediaWatcherService} from "@unstyled/services/media-watcher";
+import {Subject, takeUntil} from "rxjs";
 
 @Component({
   selector: 'app-root',
@@ -18,16 +20,29 @@ import {
   imports: [CommonModule, RouterOutlet, RouterLink, CdkFixedSizeVirtualScroll, CdkVirtualForOf, CdkVirtualScrollViewport, UnstyledDrawerComponent, CdkMenu, CdkMenuItem, RouterLinkActive, FuseVerticalNavigationComponent, FuseVerticalNavigationGroupItemComponent, FuseVerticalNavigationBasicItemComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AppComponent {
+export class AppComponent implements OnInit, OnDestroy {
   title = 'ng-unstyled';
+
   navigation: Navigation;
 
   drawerMode: 'over' | 'side' = 'side';
 
   drawerOpened: boolean = true;
 
-  constructor(private _fuseNavigationService: FuseNavigationService) {
+  /**
+   * Flag to check if the screen is small.
+   */
+  isScreenSmall: boolean;
+
+  /**
+   * Subject for unsubscribing all subscriptions.
+   */
+  private _unsubscribeAll: Subject<any> = new Subject<any>();
+
+  constructor(private _fuseNavigationService: FuseNavigationService,
+              private _docsMediaWatcherService: UnstyledMediaWatcherService,) {
   }
 
   /**
@@ -51,5 +66,23 @@ export class AppComponent {
    */
   drawerOpenedChanged(opened: boolean): void {
     this.drawerOpened = opened;
+  }
+
+  ngOnInit(): void {
+    this.inits();
+  }
+
+  ngOnDestroy(): void {
+    this._unsubscribeAll.next(null);
+    this._unsubscribeAll.complete();
+  }
+
+  private inits(): void {
+    this._docsMediaWatcherService.onMediaChange$
+      .pipe(takeUntil(this._unsubscribeAll))
+      .subscribe(({matchingAliases}) => {
+        this.isScreenSmall = !matchingAliases.includes('large');
+        console.log('this.isScreenSmall', this.isScreenSmall);
+      });
   }
 }

@@ -8,7 +8,15 @@
         <unstyled-drawer
           [fixed]="true"
           [opened]="drawerOpened"
-          [mode]="drawerMode">
+          [mode]="isScreenSmall ? 'over' : drawerMode"
+          (openedChanged)="drawerOpenedChanged($event)">
+
+          <div drawer-header>
+            <div>
+              <sl-input name="Search" placeholder="Search" />
+            </div>
+          </div>
+
           <div class="example-menu" cdkMenu>
             <button class="example-menu-item" [routerLinkActive]="'active'" routerLink="home" cdkMenuItem>Home</button>
             <button class="example-menu-item" [routerLinkActive]="'active'" routerLink="apps/chatbot" cdkMenuItem>ChatBoat</button>
@@ -16,6 +24,13 @@
             <button class="example-menu-item" [routerLinkActive]="'active'" routerLink="auth/registration" cdkMenuItem>Registration</button>
             <button class="example-menu-item" [routerLinkActive]="'active'" routerLink="auth/forgot-password" cdkMenuItem>Forgot Password</button>
             <button class="example-menu-item" [routerLinkActive]="'active'" routerLink="lab/form" cdkMenuItem>Forms</button>
+          </div>
+
+          <div drawer-footer>
+            <div>
+              <sl-avatar label="User avatar"></sl-avatar>
+              User
+            </div>
           </div>
         </unstyled-drawer>
       </div>
@@ -27,7 +42,7 @@
 
         <button
           class="ml-4"
-          (click)="toggleDrawerOpen();">
+          (click)="toggleDrawerOpen()">
           {{ drawerOpened ? 'Drawer opened' : 'Drawer closed'}}
         </button>
         <router-outlet></router-outlet>

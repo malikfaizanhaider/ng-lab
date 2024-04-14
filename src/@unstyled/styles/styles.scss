@@ -3,7 +3,7 @@
 
 html, body {
   height: 100%;
-  font: .833vw var(--uns-font-sans);
+  font: 1rem var(--uns-font-sans);
   font-weight: var(--uns-font-weight-normal);
   background-color: var(--docs-background-color);
   line-height: var(--uns-line-height-normal);
@@ -13,6 +13,5 @@ html, body {
   overflow-x: hidden;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  font-variation-settings: "slnt" 0, "wght" 550;
 }
 
