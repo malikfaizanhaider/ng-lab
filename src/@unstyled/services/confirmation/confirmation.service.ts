@@ -1,16 +1,16 @@
 import {inject, Injectable} from '@angular/core';
-import {FuseConfirmationConfig} from "./confirmation.types";
+import {UnsConfirmationConfig} from "./confirmation.types";
 import {Dialog, DialogRef} from "@angular/cdk/dialog";
-import {FuseConfirmationDialogComponent} from "./dialog/dialog.component";
+import {UnsConfirmationDialogComponent} from "./dialog/dialog.component";
 import {merge} from "lodash-es";
 
 @Injectable({
   providedIn: 'root'
 })
-export class FuseConfirmationService {
+export class UnsConfirmationService {
 
   private _cdkDialog: Dialog = inject(Dialog);
-  private _defaultConfig: FuseConfirmationConfig = {
+  private _defaultConfig: UnsConfirmationConfig = {
     title: 'Confirm action',
     message: 'Are you sure you want to confirm this action?',
     icon: {
@@ -35,16 +35,16 @@ export class FuseConfirmationService {
   constructor() {
   }
 
-  open(config: FuseConfirmationConfig = {}): DialogRef<FuseConfirmationDialogComponent> {
+  open(config: UnsConfirmationConfig = {}): DialogRef<UnsConfirmationDialogComponent> {
     const userConfig = merge({}, this._defaultConfig, config);
     return this._cdkDialog
-      .open(FuseConfirmationDialogComponent, {
+      .open(UnsConfirmationDialogComponent, {
         hasBackdrop: true,
         closeOnOverlayDetachments: true,
         autoFocus: true,
         disableClose: !userConfig.dismissible,
         data: userConfig,
-        panelClass: 'fuse-confirmation-dialog-panel',
+        panelClass: 'uns-confirmation-dialog-panel',
       });
   }
 }

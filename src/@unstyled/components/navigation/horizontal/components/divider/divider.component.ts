@@ -1,23 +1,23 @@
 import { NgClass } from '@angular/common';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { FuseHorizontalNavigationComponent } from '@unstyled/components/navigation/horizontal/horizontal.component';
-import { FuseNavigationService } from '@unstyled/components/navigation/navigation.service';
-import { FuseNavigationItem } from '@unstyled/components/navigation/navigation.types';
+import { UnsHorizontalNavigationComponent } from '@unstyled/components/navigation/horizontal/horizontal.component';
+import { UnsNavigationService } from '@unstyled/components/navigation/navigation.service';
+import { UnsNavigationItem } from '@unstyled/components/navigation/navigation.types';
 import { Subject, takeUntil } from 'rxjs';
 
 @Component({
-    selector       : 'fuse-horizontal-navigation-divider-item',
+    selector       : 'uns-horizontal-navigation-divider-item',
     templateUrl    : './divider.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
     standalone     : true,
     imports        : [NgClass],
 })
-export class FuseHorizontalNavigationDividerItemComponent implements OnInit, OnDestroy
+export class UnsHorizontalNavigationDividerItemComponent implements OnInit, OnDestroy
 {
-    @Input() item: FuseNavigationItem;
+    @Input() item: UnsNavigationItem;
     @Input() name: string;
 
-    private _fuseHorizontalNavigationComponent: FuseHorizontalNavigationComponent;
+    private _unsHorizontalNavigationComponent: UnsHorizontalNavigationComponent;
     private _unsubscribeAll: Subject<any> = new Subject<any>();
 
     /**
@@ -25,7 +25,7 @@ export class FuseHorizontalNavigationDividerItemComponent implements OnInit, OnD
      */
     constructor(
         private _changeDetectorRef: ChangeDetectorRef,
-        private _fuseNavigationService: FuseNavigationService,
+        private _unsNavigationService: UnsNavigationService,
     )
     {
     }
@@ -40,10 +40,10 @@ export class FuseHorizontalNavigationDividerItemComponent implements OnInit, OnD
     ngOnInit(): void
     {
         // Get the parent navigation component
-        this._fuseHorizontalNavigationComponent = this._fuseNavigationService.getComponent(this.name);
+        this._unsHorizontalNavigationComponent = this._unsNavigationService.getComponent(this.name);
 
         // Subscribe to onRefreshed on the navigation component
-        this._fuseHorizontalNavigationComponent.onRefreshed.pipe(
+        this._unsHorizontalNavigationComponent.onRefreshed.pipe(
             takeUntil(this._unsubscribeAll),
         ).subscribe(() =>
         {

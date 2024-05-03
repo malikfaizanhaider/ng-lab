@@ -4,26 +4,26 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { IsActiveMatchOptions, RouterLink, RouterLinkActive } from '@angular/router';
-import { FuseHorizontalNavigationComponent } from '@unstyled/components/navigation/horizontal/horizontal.component';
-import { FuseNavigationService } from '@unstyled/components/navigation/navigation.service';
-import { FuseNavigationItem } from '@unstyled/components/navigation/navigation.types';
+import { UnsHorizontalNavigationComponent } from '@unstyled/components/navigation/horizontal/horizontal.component';
+import { UnsNavigationService } from '@unstyled/components/navigation/navigation.service';
+import { UnsNavigationItem } from '@unstyled/components/navigation/navigation.types';
 import { UnstyledUtilsService } from '@unstyled/services/utils/utils.service';
 import { Subject, takeUntil } from 'rxjs';
 
 @Component({
-    selector       : 'fuse-horizontal-navigation-basic-item',
+    selector       : 'uns-horizontal-navigation-basic-item',
     templateUrl    : './basic.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
     standalone     : true,
     imports        : [NgClass, NgIf, RouterLink, RouterLinkActive, MatTooltipModule, NgTemplateOutlet, MatMenuModule, MatIconModule],
 })
-export class FuseHorizontalNavigationBasicItemComponent implements OnInit, OnDestroy
+export class UnsHorizontalNavigationBasicItemComponent implements OnInit, OnDestroy
 {
-    @Input() item: FuseNavigationItem;
+    @Input() item: UnsNavigationItem;
     @Input() name: string;
 
     isActiveMatchOptions: IsActiveMatchOptions;
-    private _fuseHorizontalNavigationComponent: FuseHorizontalNavigationComponent;
+    private _unsHorizontalNavigationComponent: UnsHorizontalNavigationComponent;
     private _unsubscribeAll: Subject<any> = new Subject<any>();
 
     /**
@@ -31,7 +31,7 @@ export class FuseHorizontalNavigationBasicItemComponent implements OnInit, OnDes
      */
     constructor(
         private _changeDetectorRef: ChangeDetectorRef,
-        private _fuseNavigationService: FuseNavigationService,
+        private _unsNavigationService: UnsNavigationService,
         private _UnstyledUtilsService: UnstyledUtilsService,
     )
     {
@@ -60,13 +60,13 @@ export class FuseHorizontalNavigationBasicItemComponent implements OnInit, OnDes
                 : this._UnstyledUtilsService.subsetMatchOptions;
 
         // Get the parent navigation component
-        this._fuseHorizontalNavigationComponent = this._fuseNavigationService.getComponent(this.name);
+        this._unsHorizontalNavigationComponent = this._unsNavigationService.getComponent(this.name);
 
         // Mark for check
         this._changeDetectorRef.markForCheck();
 
         // Subscribe to onRefreshed on the navigation component
-        this._fuseHorizontalNavigationComponent.onRefreshed.pipe(
+        this._unsHorizontalNavigationComponent.onRefreshed.pipe(
             takeUntil(this._unsubscribeAll),
         ).subscribe(() =>
         {

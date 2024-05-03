@@ -1,17 +1,17 @@
 /* Variables */
 :root {
-    --fuse-vertical-navigation-width: 280px;
+    --uns-vertical-navigation-width: 280px;
 }
 
-fuse-vertical-navigation {
+uns-vertical-navigation {
     position: sticky;
     display: flex;
     flex-direction: column;
     flex: 1 0 auto;
     top: 0;
-    width: var(--fuse-vertical-navigation-width);
-    min-width: var(--fuse-vertical-navigation-width);
-    max-width: var(--fuse-vertical-navigation-width);
+    width: var(--uns-vertical-navigation-width);
+    min-width: var(--uns-vertical-navigation-width);
+    max-width: var(--uns-vertical-navigation-width);
     height: 100vh;
     min-height: 100vh;
     max-height: 100vh;
@@ -22,13 +22,13 @@ fuse-vertical-navigation {
     /* ----------------------------------------------------------------------------------------------------- */
 
     /* Animations */
-    &.fuse-vertical-navigation-animations-enabled {
+    &.uns-vertical-navigation-animations-enabled {
         transition-duration: 400ms;
         transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
         transition-property: visibility, margin-left, margin-right, transform, width, max-width, min-width;
 
         /* Wrapper */
-        .fuse-vertical-navigation-wrapper {
+        .uns-vertical-navigation-wrapper {
             transition-duration: 400ms;
             transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
             transition-property: width, max-width, min-width;
@@ -36,70 +36,70 @@ fuse-vertical-navigation {
     }
 
     /* Over mode */
-    &.fuse-vertical-navigation-mode-over {
+    &.uns-vertical-navigation-mode-over {
         position: fixed;
         top: 0;
         bottom: 0;
     }
 
     /* Left position */
-    &.fuse-vertical-navigation-position-left {
+    &.uns-vertical-navigation-position-left {
 
         /* Side mode */
-        &.fuse-vertical-navigation-mode-side {
-            margin-left: calc(#{var(--fuse-vertical-navigation-width)} * -1);
+        &.uns-vertical-navigation-mode-side {
+            margin-left: calc(#{var(--uns-vertical-navigation-width)} * -1);
 
-            &.fuse-vertical-navigation-opened {
+            &.uns-vertical-navigation-opened {
                 margin-left: 0;
             }
         }
 
         /* Over mode */
-        &.fuse-vertical-navigation-mode-over {
+        &.uns-vertical-navigation-mode-over {
             left: 0;
             transform: translate3d(-100%, 0, 0);
 
-            &.fuse-vertical-navigation-opened {
+            &.uns-vertical-navigation-opened {
                 transform: translate3d(0, 0, 0);
             }
         }
 
         /* Wrapper */
-        .fuse-vertical-navigation-wrapper {
+        .uns-vertical-navigation-wrapper {
             left: 0;
         }
     }
 
     /* Right position */
-    &.fuse-vertical-navigation-position-right {
+    &.uns-vertical-navigation-position-right {
 
         /* Side mode */
-        &.fuse-vertical-navigation-mode-side {
-            margin-right: calc(var(--fuse-vertical-navigation-width) * -1);
+        &.uns-vertical-navigation-mode-side {
+            margin-right: calc(var(--uns-vertical-navigation-width) * -1);
 
-            &.fuse-vertical-navigation-opened {
+            &.uns-vertical-navigation-opened {
                 margin-right: 0;
             }
         }
 
         /* Over mode */
-        &.fuse-vertical-navigation-mode-over {
+        &.uns-vertical-navigation-mode-over {
             right: 0;
             transform: translate3d(100%, 0, 0);
 
-            &.fuse-vertical-navigation-opened {
+            &.uns-vertical-navigation-opened {
                 transform: translate3d(0, 0, 0);
             }
         }
 
         /* Wrapper */
-        .fuse-vertical-navigation-wrapper {
+        .uns-vertical-navigation-wrapper {
             right: 0;
         }
     }
 
     /* Inner mode */
-    &.fuse-vertical-navigation-inner {
+    &.uns-vertical-navigation-inner {
         position: relative;
         width: auto;
         min-width: 0;
@@ -109,19 +109,19 @@ fuse-vertical-navigation {
         max-height: none;
         box-shadow: none;
 
-        .fuse-vertical-navigation-wrapper {
+        .uns-vertical-navigation-wrapper {
             position: relative;
             overflow: visible;
             height: auto;
 
-            .fuse-vertical-navigation-content {
+            .uns-vertical-navigation-content {
                 overflow: visible !important;
             }
         }
     }
 
     /* Wrapper */
-    .fuse-vertical-navigation-wrapper {
+    .uns-vertical-navigation-wrapper {
         position: absolute;
         display: flex;
         flex: 1 1 auto;
@@ -133,47 +133,47 @@ fuse-vertical-navigation {
         overflow: hidden;
         z-index: 10;
         background: inherit;
-        box-shadow: inset -1px 0 0 var(--fuse-border);
+        box-shadow: inset -1px 0 0 var(--uns-border);
 
         /* Header */
-        .fuse-vertical-navigation-header {
+        .uns-vertical-navigation-header {
 
         }
 
         /* Content */
-        .fuse-vertical-navigation-content {
+        .uns-vertical-navigation-content {
             flex: 1 1 auto;
             overflow-x: hidden;
             overflow-y: auto;
             overscroll-behavior: contain;
 
             /* Divider */
-            > fuse-vertical-navigation-divider-item {
+            > uns-vertical-navigation-divider-item {
                 margin: 24px 0;
             }
 
             /* Group */
-            > fuse-vertical-navigation-group-item {
+            > uns-vertical-navigation-group-item {
                 margin-top: 24px;
             }
         }
 
         /* Footer */
-        .fuse-vertical-navigation-footer {
+        .uns-vertical-navigation-footer {
 
         }
     }
 
     /* Aside wrapper */
-    .fuse-vertical-navigation-aside-wrapper {
+    .uns-vertical-navigation-aside-wrapper {
         position: absolute;
         display: flex;
         flex: 1 1 auto;
         flex-direction: column;
         top: 0;
         bottom: 0;
-        left: var(--fuse-vertical-navigation-width);
-        width: var(--fuse-vertical-navigation-width);
+        left: var(--uns-vertical-navigation-width);
+        width: var(--uns-vertical-navigation-width);
         height: 100%;
         z-index: 5;
         overflow-x: hidden;
@@ -184,21 +184,21 @@ fuse-vertical-navigation {
         transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
         background: inherit;
 
-        > fuse-vertical-navigation-aside-item {
+        > uns-vertical-navigation-aside-item {
             padding: 24px 0;
 
             /* First item of the aside */
-            > .fuse-vertical-navigation-item-wrapper {
+            > .uns-vertical-navigation-item-wrapper {
                 display: none !important;
             }
         }
     }
 
-    &.fuse-vertical-navigation-position-right {
+    &.uns-vertical-navigation-position-right {
 
-        .fuse-vertical-navigation-aside-wrapper {
+        .uns-vertical-navigation-aside-wrapper {
             left: auto;
-            right: var(--fuse-vertical-navigation-width);
+            right: var(--uns-vertical-navigation-width);
         }
     }
 
@@ -207,20 +207,20 @@ fuse-vertical-navigation {
     /* ----------------------------------------------------------------------------------------------------- */
 
     /* Navigation items common */
-    fuse-vertical-navigation-aside-item,
-    fuse-vertical-navigation-basic-item,
-    fuse-vertical-navigation-collapsable-item,
-    fuse-vertical-navigation-divider-item,
-    fuse-vertical-navigation-group-item,
-    fuse-vertical-navigation-spacer-item {
+    uns-vertical-navigation-aside-item,
+    uns-vertical-navigation-basic-item,
+    uns-vertical-navigation-collapsable-item,
+    uns-vertical-navigation-divider-item,
+    uns-vertical-navigation-group-item,
+    uns-vertical-navigation-spacer-item {
         display: flex;
         flex-direction: column;
         flex: 1 0 auto;
         user-select: none;
 
-        .fuse-vertical-navigation-item-wrapper {
+        .uns-vertical-navigation-item-wrapper {
 
-            .fuse-vertical-navigation-item {
+            .uns-vertical-navigation-item {
                 position: relative;
                 display: flex;
                 align-items: center;
@@ -233,27 +233,27 @@ fuse-vertical-navigation {
                 border-radius: 6px;
 
                 /* Disabled state */
-                &.fuse-vertical-navigation-item-disabled {
+                &.uns-vertical-navigation-item-disabled {
                     cursor: default;
                     opacity: 0.4;
                 }
 
-                .fuse-vertical-navigation-item-icon {
+                .uns-vertical-navigation-item-icon {
                     margin-right: 16px;
                 }
 
-                .fuse-vertical-navigation-item-title-wrapper {
+                .uns-vertical-navigation-item-title-wrapper {
 
-                    .fuse-vertical-navigation-item-subtitle {
+                    .uns-vertical-navigation-item-subtitle {
                         font-size: 11px;
                         line-height: 1.5;
                     }
                 }
 
-                .fuse-vertical-navigation-item-badge {
+                .uns-vertical-navigation-item-badge {
                     margin-left: auto;
 
-                    .fuse-vertical-navigation-item-badge-content {
+                    .uns-vertical-navigation-item-badge-content {
                         display: flex;
                         align-items: center;
                         justify-content: center;
@@ -268,52 +268,52 @@ fuse-vertical-navigation {
     }
 
     /* Aside, Basic, Collapsable, Group */
-    fuse-vertical-navigation-aside-item,
-    fuse-vertical-navigation-basic-item,
-    fuse-vertical-navigation-collapsable-item,
-    fuse-vertical-navigation-group-item {
+    uns-vertical-navigation-aside-item,
+    uns-vertical-navigation-basic-item,
+    uns-vertical-navigation-collapsable-item,
+    uns-vertical-navigation-group-item {
 
-        > .fuse-vertical-navigation-item-wrapper {
+        > .uns-vertical-navigation-item-wrapper {
             margin: 0 12px;
         }
     }
 
     /* Aside, Basic, Collapsable */
-    fuse-vertical-navigation-aside-item,
-    fuse-vertical-navigation-basic-item,
-    fuse-vertical-navigation-collapsable-item {
+    uns-vertical-navigation-aside-item,
+    uns-vertical-navigation-basic-item,
+    uns-vertical-navigation-collapsable-item {
         margin-bottom: 0.25rem;
 
-        .fuse-vertical-navigation-item {
+        .uns-vertical-navigation-item {
             cursor: pointer;
         }
     }
 
     /* Aside */
-    fuse-vertical-navigation-aside-item {
+    uns-vertical-navigation-aside-item {
 
     }
 
     /* Basic */
-    fuse-vertical-navigation-basic-item {
+    uns-vertical-navigation-basic-item {
 
     }
 
     /* Collapsable */
-    fuse-vertical-navigation-collapsable-item {
+    uns-vertical-navigation-collapsable-item {
 
-        > .fuse-vertical-navigation-item-wrapper {
+        > .uns-vertical-navigation-item-wrapper {
 
-            .fuse-vertical-navigation-item {
+            .uns-vertical-navigation-item {
 
-                .fuse-vertical-navigation-item-badge {
+                .uns-vertical-navigation-item-badge {
 
-                    + .fuse-vertical-navigation-item-arrow {
+                    + .uns-vertical-navigation-item-arrow {
                         margin-left: 0.5rem;
                     }
                 }
 
-                .fuse-vertical-navigation-item-arrow {
+                .uns-vertical-navigation-item-arrow {
                     height: 20px;
                     line-height: 20px;
                     margin-left: auto;
@@ -323,20 +323,20 @@ fuse-vertical-navigation {
             }
         }
 
-        &.fuse-vertical-navigation-item-expanded {
+        &.uns-vertical-navigation-item-expanded {
 
-            > .fuse-vertical-navigation-item-wrapper {
+            > .uns-vertical-navigation-item-wrapper {
 
-                .fuse-vertical-navigation-item {
+                .uns-vertical-navigation-item {
 
-                    .fuse-vertical-navigation-item-arrow {
+                    .uns-vertical-navigation-item-arrow {
                         transform: rotate(90deg);
                     }
                 }
             }
         }
 
-        > .fuse-vertical-navigation-item-children {
+        > .uns-vertical-navigation-item-children {
 
             > *:first-child {
                 margin-top: 6px;
@@ -345,7 +345,7 @@ fuse-vertical-navigation {
             > *:last-child {
                 padding-bottom: 6px;
 
-                > .fuse-vertical-navigation-item-children {
+                > .uns-vertical-navigation-item-children {
 
                     > *:last-child {
                         padding-bottom: 0;
@@ -353,37 +353,37 @@ fuse-vertical-navigation {
                 }
             }
 
-            .fuse-vertical-navigation-item {
+            .uns-vertical-navigation-item {
                 padding: 10px 16px;
             }
         }
 
         /* 1st level */
-        .fuse-vertical-navigation-item-children {
+        .uns-vertical-navigation-item-children {
             overflow: hidden;
 
-            .fuse-vertical-navigation-item {
+            .uns-vertical-navigation-item {
                 padding-left: 56px;
             }
 
             /* 2nd level */
-            .fuse-vertical-navigation-item-children {
+            .uns-vertical-navigation-item-children {
 
-                .fuse-vertical-navigation-item {
+                .uns-vertical-navigation-item {
                     padding-left: 72px;
                 }
 
                 /* 3rd level */
-                .fuse-vertical-navigation-item-children {
+                .uns-vertical-navigation-item-children {
 
-                    .fuse-vertical-navigation-item {
+                    .uns-vertical-navigation-item {
                         padding-left: 88px;
                     }
 
                     /* 4th level */
-                    .fuse-vertical-navigation-item-children {
+                    .uns-vertical-navigation-item-children {
 
-                        .fuse-vertical-navigation-item {
+                        .uns-vertical-navigation-item {
                             padding-left: 104px;
                         }
                     }
@@ -393,30 +393,30 @@ fuse-vertical-navigation {
     }
 
     /* Divider */
-    fuse-vertical-navigation-divider-item {
+    uns-vertical-navigation-divider-item {
         margin: 12px 0;
 
-        .fuse-vertical-navigation-item-wrapper {
+        .uns-vertical-navigation-item-wrapper {
             height: 1px;
             box-shadow: 0 1px 0 0;
         }
     }
 
     /* Group */
-    fuse-vertical-navigation-group-item {
+    uns-vertical-navigation-group-item {
 
-        > .fuse-vertical-navigation-item-wrapper {
+        > .uns-vertical-navigation-item-wrapper {
 
-            .fuse-vertical-navigation-item {
+            .uns-vertical-navigation-item {
 
-                .fuse-vertical-navigation-item-badge,
-                .fuse-vertical-navigation-item-icon {
+                .uns-vertical-navigation-item-badge,
+                .uns-vertical-navigation-item-icon {
                     display: none !important;
                 }
 
-                .fuse-vertical-navigation-item-title-wrapper {
+                .uns-vertical-navigation-item-title-wrapper {
 
-                    .fuse-vertical-navigation-item-title {
+                    .uns-vertical-navigation-item-title {
                         font-size: 12px;
                         font-weight: 600;
                         letter-spacing: 0.05em;
@@ -428,7 +428,7 @@ fuse-vertical-navigation {
     }
 
     /* Spacer */
-    fuse-vertical-navigation-spacer-item {
+    uns-vertical-navigation-spacer-item {
         margin: 6px 0;
     }
 }
@@ -436,7 +436,7 @@ fuse-vertical-navigation {
 /* ----------------------------------------------------------------------------------------------------- */
 /* @ Overlay
 /* ----------------------------------------------------------------------------------------------------- */
-.fuse-vertical-navigation-overlay {
+.uns-vertical-navigation-overlay {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -446,7 +446,7 @@ fuse-vertical-navigation {
     opacity: 0;
     background-color: rgba(0, 0, 0, 0.6);
 
-    + .fuse-vertical-navigation-aside-overlay {
+    + .uns-vertical-navigation-aside-overlay {
         background-color: transparent;
     }
 }
@@ -454,7 +454,7 @@ fuse-vertical-navigation {
 /* ----------------------------------------------------------------------------------------------------- */
 /* @ Aside overlay
 /* ----------------------------------------------------------------------------------------------------- */
-.fuse-vertical-navigation-aside-overlay {
+.uns-vertical-navigation-aside-overlay {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -470,27 +470,27 @@ fuse-vertical-navigation {
 /* ----------------------------------------------------------------------------------------------------- */
 
 /* Navigation items common */
-fuse-vertical-navigation-aside-item,
-fuse-vertical-navigation-basic-item,
-fuse-vertical-navigation-collapsable-item,
-fuse-vertical-navigation-group-item {
+uns-vertical-navigation-aside-item,
+uns-vertical-navigation-basic-item,
+uns-vertical-navigation-collapsable-item,
+uns-vertical-navigation-group-item {
 
-    .fuse-vertical-navigation-item-wrapper {
+    .uns-vertical-navigation-item-wrapper {
 
-        .fuse-vertical-navigation-item {
+        .uns-vertical-navigation-item {
             color: currentColor;
 
-            .fuse-vertical-navigation-item-icon {
+            .uns-vertical-navigation-item-icon {
                 @apply text-current opacity-60;
             }
 
-            .fuse-vertical-navigation-item-title-wrapper {
+            .uns-vertical-navigation-item-title-wrapper {
 
-                .fuse-vertical-navigation-item-title {
+                .uns-vertical-navigation-item-title {
                     @apply text-current opacity-80;
                 }
 
-                .fuse-vertical-navigation-item-subtitle {
+                .uns-vertical-navigation-item-subtitle {
                     @apply text-current opacity-50;
                 }
             }
@@ -499,51 +499,51 @@ fuse-vertical-navigation-group-item {
 }
 
 /* Aside, Basic, Collapsable */
-fuse-vertical-navigation-aside-item,
-fuse-vertical-navigation-basic-item,
-fuse-vertical-navigation-collapsable-item {
+uns-vertical-navigation-aside-item,
+uns-vertical-navigation-basic-item,
+uns-vertical-navigation-collapsable-item {
 
-    > .fuse-vertical-navigation-item-wrapper {
+    > .uns-vertical-navigation-item-wrapper {
 
-        .fuse-vertical-navigation-item {
+        .uns-vertical-navigation-item {
 
             /* Active state */
-            &:not(.fuse-vertical-navigation-item-disabled) {
+            &:not(.uns-vertical-navigation-item-disabled) {
 
-                &.fuse-vertical-navigation-item-active,
-                &.fuse-vertical-navigation-item-active-forced {
+                &.uns-vertical-navigation-item-active,
+                &.uns-vertical-navigation-item-active-forced {
                     @apply bg-gray-800 bg-opacity-5 dark:bg-white dark:bg-opacity-12;
 
-                    .fuse-vertical-navigation-item-icon {
+                    .uns-vertical-navigation-item-icon {
                         @apply opacity-100;
                     }
 
-                    .fuse-vertical-navigation-item-title {
+                    .uns-vertical-navigation-item-title {
                         @apply opacity-100;
                     }
 
-                    .fuse-vertical-navigation-item-subtitle {
+                    .uns-vertical-navigation-item-subtitle {
                         @apply opacity-100;
                     }
                 }
             }
 
             /* Hover state */
-            &:not(.fuse-vertical-navigation-item-active-forced):not(.fuse-vertical-navigation-item-active):not(.fuse-vertical-navigation-item-disabled) {
+            &:not(.uns-vertical-navigation-item-active-forced):not(.uns-vertical-navigation-item-active):not(.uns-vertical-navigation-item-disabled) {
 
                 &:hover {
                     @apply bg-gray-800 bg-opacity-5 dark:bg-white dark:bg-opacity-12;
 
-                    .fuse-vertical-navigation-item-icon {
+                    .uns-vertical-navigation-item-icon {
                         @apply opacity-100;
                     }
 
-                    .fuse-vertical-navigation-item-title,
-                    .fuse-vertical-navigation-item-arrow {
+                    .uns-vertical-navigation-item-title,
+                    .uns-vertical-navigation-item-arrow {
                         @apply opacity-100;
                     }
 
-                    .fuse-vertical-navigation-item-subtitle {
+                    .uns-vertical-navigation-item-subtitle {
                         @apply opacity-100;
                     }
                 }
@@ -553,25 +553,25 @@ fuse-vertical-navigation-collapsable-item {
 }
 
 /* Collapsable */
-fuse-vertical-navigation-collapsable-item {
+uns-vertical-navigation-collapsable-item {
 
     /* Expanded state */
-    &.fuse-vertical-navigation-item-expanded {
+    &.uns-vertical-navigation-item-expanded {
 
-        > .fuse-vertical-navigation-item-wrapper {
+        > .uns-vertical-navigation-item-wrapper {
 
-            .fuse-vertical-navigation-item {
+            .uns-vertical-navigation-item {
 
-                .fuse-vertical-navigation-item-icon {
+                .uns-vertical-navigation-item-icon {
                     @apply opacity-100;
                 }
 
-                .fuse-vertical-navigation-item-title,
-                .fuse-vertical-navigation-item-arrow {
+                .uns-vertical-navigation-item-title,
+                .uns-vertical-navigation-item-arrow {
                     @apply opacity-100;
                 }
 
-                .fuse-vertical-navigation-item-subtitle {
+                .uns-vertical-navigation-item-subtitle {
                     @apply opacity-100;
                 }
             }
@@ -580,15 +580,15 @@ fuse-vertical-navigation-collapsable-item {
 }
 
 /* Group */
-fuse-vertical-navigation-group-item {
+uns-vertical-navigation-group-item {
 
-    > .fuse-vertical-navigation-item-wrapper {
+    > .uns-vertical-navigation-item-wrapper {
 
-        .fuse-vertical-navigation-item {
+        .uns-vertical-navigation-item {
 
-            .fuse-vertical-navigation-item-title-wrapper {
+            .uns-vertical-navigation-item-title-wrapper {
 
-                .fuse-vertical-navigation-item-title {
+                .uns-vertical-navigation-item-title {
                     @apply opacity-100 text-primary-600 dark:text-primary-400;
                 }
             }

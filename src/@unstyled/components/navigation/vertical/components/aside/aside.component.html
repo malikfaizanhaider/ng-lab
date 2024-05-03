@@ -1,32 +1,32 @@
 <div
-    class="fuse-vertical-navigation-item-wrapper"
-    [class.fuse-vertical-navigation-item-has-subtitle]="!!item.subtitle"
+    class="uns-vertical-navigation-item-wrapper"
+    [class.uns-vertical-navigation-item-has-subtitle]="!!item.subtitle"
     [ngClass]="item.classes?.wrapper">
 
     <div
-        class="fuse-vertical-navigation-item"
-        [ngClass]="{'fuse-vertical-navigation-item-active': active,
-                    'fuse-vertical-navigation-item-disabled': item.disabled,
-                    'fuse-vertical-navigation-item-active-forced': item.active}"
+        class="uns-vertical-navigation-item"
+        [ngClass]="{'uns-vertical-navigation-item-active': active,
+                    'uns-vertical-navigation-item-disabled': item.disabled,
+                    'uns-vertical-navigation-item-active-forced': item.active}"
         [matTooltip]="item.tooltip || ''">
 
         <!-- Icon -->
         <ng-container *ngIf="item.icon">
             <mat-icon
-                class="fuse-vertical-navigation-item-icon"
+                class="uns-vertical-navigation-item-icon"
                 [ngClass]="item.classes?.icon"
                 [svgIcon]="item.icon"></mat-icon>
         </ng-container>
 
         <!-- Title & Subtitle -->
-        <div class="fuse-vertical-navigation-item-title-wrapper">
-            <div class="fuse-vertical-navigation-item-title">
+        <div class="uns-vertical-navigation-item-title-wrapper">
+            <div class="uns-vertical-navigation-item-title">
                 <span [ngClass]="item.classes?.title">
                     {{item.title}}
                 </span>
             </div>
             <ng-container *ngIf="item.subtitle">
-                <div class="fuse-vertical-navigation-item-subtitle">
+                <div class="uns-vertical-navigation-item-subtitle">
                     <span [ngClass]="item.classes?.subtitle">
                         {{item.subtitle}}
                     </span>
@@ -36,9 +36,9 @@
 
         <!-- Badge -->
         <ng-container *ngIf="item.badge">
-            <div class="fuse-vertical-navigation-item-badge">
+            <div class="uns-vertical-navigation-item-badge">
                 <div
-                    class="fuse-vertical-navigation-item-badge-content"
+                    class="uns-vertical-navigation-item-badge-content"
                     [ngClass]="item.badge.classes">
                     {{item.badge.title}}
                 </div>
@@ -51,7 +51,7 @@
 
 <ng-container *ngIf="!skipChildren">
 
-    <div class="fuse-vertical-navigation-item-children">
+    <div class="uns-vertical-navigation-item-children">
 
         <ng-container *ngFor="let item of item.children; trackBy: trackByFn">
 
@@ -60,38 +60,38 @@
 
                 <!-- Basic -->
                 <ng-container *ngIf="item.type === 'basic'">
-                    <fuse-vertical-navigation-basic-item
+                    <uns-vertical-navigation-basic-item
                         [item]="item"
-                        [name]="name"></fuse-vertical-navigation-basic-item>
+                        [name]="name"></uns-vertical-navigation-basic-item>
                 </ng-container>
 
                 <!-- Collapsable -->
                 <ng-container *ngIf="item.type === 'collapsable'">
-                    <fuse-vertical-navigation-collapsable-item
+                    <uns-vertical-navigation-collapsable-item
                         [item]="item"
                         [name]="name"
-                        [autoCollapse]="autoCollapse"></fuse-vertical-navigation-collapsable-item>
+                        [autoCollapse]="autoCollapse"></uns-vertical-navigation-collapsable-item>
                 </ng-container>
 
                 <!-- Divider -->
                 <ng-container *ngIf="item.type === 'divider'">
-                    <fuse-vertical-navigation-divider-item
+                    <uns-vertical-navigation-divider-item
                         [item]="item"
-                        [name]="name"></fuse-vertical-navigation-divider-item>
+                        [name]="name"></uns-vertical-navigation-divider-item>
                 </ng-container>
 
                 <!-- Group -->
                 <ng-container *ngIf="item.type === 'group'">
-                    <fuse-vertical-navigation-group-item
+                    <uns-vertical-navigation-group-item
                         [item]="item"
-                        [name]="name"></fuse-vertical-navigation-group-item>
+                        [name]="name"></uns-vertical-navigation-group-item>
                 </ng-container>
 
                 <!-- Spacer -->
                 <ng-container *ngIf="item.type === 'spacer'">
-                    <fuse-vertical-navigation-spacer-item
+                    <uns-vertical-navigation-spacer-item
                         [item]="item"
-                        [name]="name"></fuse-vertical-navigation-spacer-item>
+                        [name]="name"></uns-vertical-navigation-spacer-item>
                 </ng-container>
 
             </ng-container>

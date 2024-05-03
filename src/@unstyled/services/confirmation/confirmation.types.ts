@@ -1,4 +1,4 @@
-export interface FuseConfirmationConfig
+export interface UnsConfirmationConfig
 {
   title?: string;
   message?: string;

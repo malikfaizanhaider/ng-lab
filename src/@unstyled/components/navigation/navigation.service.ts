@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { FuseNavigationItem } from '@unstyled/components/navigation/navigation.types';
+import { UnsNavigationItem } from '@unstyled/components/navigation/navigation.types';
 
 @Injectable({providedIn: 'root'})
-export class FuseNavigationService
+export class UnsNavigationService
 {
     private _componentRegistry: Map<string, any> = new Map<string, any>();
-    private _navigationStore: Map<string, FuseNavigationItem[]> = new Map<string, any>();
+    private _navigationStore: Map<string, UnsNavigationItem[]> = new Map<string, any>();
 
     /**
      * Constructor
@@ -55,7 +55,7 @@ export class FuseNavigationService
      * @param key
      * @param navigation
      */
-    storeNavigation(key: string, navigation: FuseNavigationItem[]): void
+    storeNavigation(key: string, navigation: UnsNavigationItem[]): void
     {
         // Add to the store
         this._navigationStore.set(key, navigation);
@@ -66,7 +66,7 @@ export class FuseNavigationService
      *
      * @param key
      */
-    getNavigation(key: string): FuseNavigationItem[]
+    getNavigation(key: string): UnsNavigationItem[]
     {
         return this._navigationStore.get(key) ?? [];
     }
@@ -95,7 +95,7 @@ export class FuseNavigationService
      * @param navigation
      * @param flatNavigation
      */
-    getFlatNavigation(navigation: FuseNavigationItem[], flatNavigation: FuseNavigationItem[] = []): FuseNavigationItem[]
+    getFlatNavigation(navigation: UnsNavigationItem[], flatNavigation: UnsNavigationItem[] = []): UnsNavigationItem[]
     {
         for ( const item of navigation )
         {
@@ -124,7 +124,7 @@ export class FuseNavigationService
      * @param id
      * @param navigation
      */
-    getItem(id: string, navigation: FuseNavigationItem[]): FuseNavigationItem | null
+    getItem(id: string, navigation: UnsNavigationItem[]): UnsNavigationItem | null
     {
         for ( const item of navigation )
         {
@@ -157,9 +157,9 @@ export class FuseNavigationService
      */
     getItemParent(
         id: string,
-        navigation: FuseNavigationItem[],
-        parent: FuseNavigationItem[] | FuseNavigationItem,
-    ): FuseNavigationItem[] | FuseNavigationItem | null
+        navigation: UnsNavigationItem[],
+        parent: UnsNavigationItem[] | UnsNavigationItem,
+    ): UnsNavigationItem[] | UnsNavigationItem | null
     {
         for ( const item of navigation )
         {

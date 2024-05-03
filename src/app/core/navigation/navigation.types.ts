@@ -1,9 +1,9 @@
-import { FuseNavigationItem } from '@unstyled/components/navigation';
+import { UnsNavigationItem } from '@unstyled/components/navigation';
 
 export interface Navigation
 {
-    compact: FuseNavigationItem[];
-    default: FuseNavigationItem[];
-    futuristic: FuseNavigationItem[];
-    horizontal: FuseNavigationItem[];
+    compact: UnsNavigationItem[];
+    default: UnsNavigationItem[];
+    futuristic: UnsNavigationItem[];
+    horizontal: UnsNavigationItem[];
 }

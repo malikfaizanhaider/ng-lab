@@ -2,33 +2,33 @@ import { BooleanInput } from '@angular/cdk/coercion';
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, forwardRef, Input, OnDestroy, OnInit } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { FuseNavigationService } from '@unstyled/components/navigation/navigation.service';
-import { FuseNavigationItem } from '@unstyled/components/navigation/navigation.types';
-import { FuseVerticalNavigationBasicItemComponent } from '@unstyled/components/navigation/vertical/components/basic/basic.component';
-import { FuseVerticalNavigationCollapsableItemComponent } from '@unstyled/components/navigation/vertical/components/collapsable/collapsable.component';
-import { FuseVerticalNavigationDividerItemComponent } from '@unstyled/components/navigation/vertical/components/divider/divider.component';
-import { FuseVerticalNavigationSpacerItemComponent } from '@unstyled/components/navigation/vertical/components/spacer/spacer.component';
-import { FuseVerticalNavigationComponent } from '@unstyled/components/navigation/vertical/vertical.component';
+import { UnsNavigationService } from '@unstyled/components/navigation/navigation.service';
+import { UnsNavigationItem } from '@unstyled/components/navigation/navigation.types';
+import { UnsVerticalNavigationBasicItemComponent } from '@unstyled/components/navigation/vertical/components/basic/basic.component';
+import { UnsVerticalNavigationCollapsableItemComponent } from '@unstyled/components/navigation/vertical/components/collapsable/collapsable.component';
+import { UnsVerticalNavigationDividerItemComponent } from '@unstyled/components/navigation/vertical/components/divider/divider.component';
+import { UnsVerticalNavigationSpacerItemComponent } from '@unstyled/components/navigation/vertical/components/spacer/spacer.component';
+import { UnsVerticalNavigationComponent } from '@unstyled/components/navigation/vertical/vertical.component';
 import { Subject, takeUntil } from 'rxjs';
 
 @Component({
-    selector       : 'fuse-vertical-navigation-group-item',
+    selector       : 'uns-vertical-navigation-group-item',
     templateUrl    : './group.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
     standalone     : true,
-    imports        : [NgClass, NgIf, MatIconModule, NgFor, FuseVerticalNavigationBasicItemComponent, FuseVerticalNavigationCollapsableItemComponent, FuseVerticalNavigationDividerItemComponent, forwardRef(() => FuseVerticalNavigationGroupItemComponent), FuseVerticalNavigationSpacerItemComponent],
+    imports        : [NgClass, NgIf, MatIconModule, NgFor, UnsVerticalNavigationBasicItemComponent, UnsVerticalNavigationCollapsableItemComponent, UnsVerticalNavigationDividerItemComponent, forwardRef(() => UnsVerticalNavigationGroupItemComponent), UnsVerticalNavigationSpacerItemComponent],
 })
-export class FuseVerticalNavigationGroupItemComponent implements OnInit, OnDestroy
+export class UnsVerticalNavigationGroupItemComponent implements OnInit, OnDestroy
 {
     /* eslint-disable @typescript-eslint/naming-convention */
     static ngAcceptInputType_autoCollapse: BooleanInput;
     /* eslint-enable @typescript-eslint/naming-convention */
 
     @Input() autoCollapse: boolean;
-    @Input() item: FuseNavigationItem;
+    @Input() item: UnsNavigationItem;
     @Input() name: string;
 
-    private _fuseVerticalNavigationComponent: FuseVerticalNavigationComponent;
+    private _unsVerticalNavigationComponent: UnsVerticalNavigationComponent;
     private _unsubscribeAll: Subject<any> = new Subject<any>();
 
     /**
@@ -36,7 +36,7 @@ export class FuseVerticalNavigationGroupItemComponent implements OnInit, OnDestr
      */
     constructor(
         private _changeDetectorRef: ChangeDetectorRef,
-        private _fuseNavigationService: FuseNavigationService,
+        private _unsNavigationService: UnsNavigationService,
     )
     {
     }
@@ -51,10 +51,10 @@ export class FuseVerticalNavigationGroupItemComponent implements OnInit, OnDestr
     ngOnInit(): void
     {
         // Get the parent navigation component
-        this._fuseVerticalNavigationComponent = this._fuseNavigationService.getComponent(this.name);
+        this._unsVerticalNavigationComponent = this._unsNavigationService.getComponent(this.name);
 
         // Subscribe to onRefreshed on the navigation component
-        this._fuseVerticalNavigationComponent.onRefreshed.pipe(
+        this._unsVerticalNavigationComponent.onRefreshed.pipe(
             takeUntil(this._unsubscribeAll),
         ).subscribe(() =>
         {

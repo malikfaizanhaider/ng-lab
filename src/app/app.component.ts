@@ -4,12 +4,12 @@ import {Navigation, RouterLink, RouterLinkActive, RouterOutlet} from '@angular/r
 import {CdkFixedSizeVirtualScroll, CdkVirtualForOf, CdkVirtualScrollViewport} from "@angular/cdk/scrolling";
 import {UnstyledDrawerComponent} from "@unstyled/components/drawer";
 import {CdkMenu, CdkMenuItem} from "@angular/cdk/menu";
-import {FuseVerticalNavigationComponent, FuseNavigationService} from '@unstyled/components/navigation';
+import {UnsVerticalNavigationComponent, UnsNavigationService} from '@unstyled/components/navigation';
 import {
-  FuseVerticalNavigationGroupItemComponent
+  UnsVerticalNavigationGroupItemComponent
 } from "@unstyled/components/navigation/vertical/components/group/group.component";
 import {
-  FuseVerticalNavigationBasicItemComponent
+  UnsVerticalNavigationBasicItemComponent
 } from "@unstyled/components/navigation/vertical/components/basic/basic.component";
 import {UnstyledMediaWatcherService} from "@unstyled/services/media-watcher";
 import {Subject, takeUntil} from "rxjs";
@@ -17,7 +17,7 @@ import {Subject, takeUntil} from "rxjs";
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterLink, CdkFixedSizeVirtualScroll, CdkVirtualForOf, CdkVirtualScrollViewport, UnstyledDrawerComponent, CdkMenu, CdkMenuItem, RouterLinkActive, FuseVerticalNavigationComponent, FuseVerticalNavigationGroupItemComponent, FuseVerticalNavigationBasicItemComponent],
+  imports: [CommonModule, RouterOutlet, RouterLink, CdkFixedSizeVirtualScroll, CdkVirtualForOf, CdkVirtualScrollViewport, UnstyledDrawerComponent, CdkMenu, CdkMenuItem, RouterLinkActive, UnsVerticalNavigationComponent, UnsVerticalNavigationGroupItemComponent, UnsVerticalNavigationBasicItemComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
@@ -41,7 +41,7 @@ export class AppComponent implements OnInit, OnDestroy {
    */
   private _unsubscribeAll: Subject<any> = new Subject<any>();
 
-  constructor(private _fuseNavigationService: FuseNavigationService,
+  constructor(private _unsNavigationService: UnsNavigationService,
               private _docsMediaWatcherService: UnstyledMediaWatcherService,) {
   }
 

@@ -1,7 +1,7 @@
 <ng-container *ngIf="!child">
     <div
-        [ngClass]="{'fuse-horizontal-navigation-menu-active': trigger.menuOpen,
-                 'fuse-horizontal-navigation-menu-active-forced': item.active}"
+        [ngClass]="{'uns-horizontal-navigation-menu-active': trigger.menuOpen,
+                 'uns-horizontal-navigation-menu-active-forced': item.active}"
         [matMenuTriggerFor]="matMenu"
         (onMenuOpen)="triggerChangeDetection()"
         (onMenuClose)="triggerChangeDetection()"
@@ -11,7 +11,7 @@
 </ng-container>
 
 <mat-menu
-    class="fuse-horizontal-navigation-menu-panel"
+    class="uns-horizontal-navigation-menu-panel"
     [overlapTrigger]="false"
     #matMenu="matMenu">
 
@@ -23,39 +23,39 @@
             <!-- Basic -->
             <ng-container *ngIf="item.type === 'basic'">
                 <div
-                    class="fuse-horizontal-navigation-menu-item"
+                    class="uns-horizontal-navigation-menu-item"
                     [disabled]="item.disabled"
                     mat-menu-item>
-                    <fuse-horizontal-navigation-basic-item
+                    <uns-horizontal-navigation-basic-item
                         [item]="item"
-                        [name]="name"></fuse-horizontal-navigation-basic-item>
+                        [name]="name"></uns-horizontal-navigation-basic-item>
                 </div>
             </ng-container>
 
             <!-- Branch: aside, collapsable, group -->
             <ng-container *ngIf="item.type === 'aside' || item.type === 'collapsable' || item.type === 'group'">
                 <div
-                    class="fuse-horizontal-navigation-menu-item"
+                    class="uns-horizontal-navigation-menu-item"
                     [disabled]="item.disabled"
                     [matMenuTriggerFor]="branch.matMenu"
                     mat-menu-item>
                     <ng-container *ngTemplateOutlet="itemTemplate; context: {$implicit: item}"></ng-container>
-                    <fuse-horizontal-navigation-branch-item
+                    <uns-horizontal-navigation-branch-item
                         [child]="true"
                         [item]="item"
                         [name]="name"
-                        #branch></fuse-horizontal-navigation-branch-item>
+                        #branch></uns-horizontal-navigation-branch-item>
                 </div>
             </ng-container>
 
             <!-- Divider -->
             <ng-container *ngIf="item.type === 'divider'">
                 <div
-                    class="fuse-horizontal-navigation-menu-item"
+                    class="uns-horizontal-navigation-menu-item"
                     mat-menu-item>
-                    <fuse-horizontal-navigation-divider-item
+                    <uns-horizontal-navigation-divider-item
                         [item]="item"
-                        [name]="name"></fuse-horizontal-navigation-divider-item>
+                        [name]="name"></uns-horizontal-navigation-divider-item>
                 </div>
             </ng-container>
 
@@ -71,33 +71,33 @@
     #itemTemplate>
 
     <div
-        class="fuse-horizontal-navigation-item-wrapper"
-        [class.fuse-horizontal-navigation-item-has-subtitle]="!!item.subtitle"
+        class="uns-horizontal-navigation-item-wrapper"
+        [class.uns-horizontal-navigation-item-has-subtitle]="!!item.subtitle"
         [ngClass]="item.classes?.wrapper">
 
         <div
-            class="fuse-horizontal-navigation-item"
-            [ngClass]="{'fuse-horizontal-navigation-item-disabled': item.disabled,
-                         'fuse-horizontal-navigation-item-active-forced': item.active}"
+            class="uns-horizontal-navigation-item"
+            [ngClass]="{'uns-horizontal-navigation-item-disabled': item.disabled,
+                         'uns-horizontal-navigation-item-active-forced': item.active}"
             [matTooltip]="item.tooltip || ''">
 
             <!-- Icon -->
             <ng-container *ngIf="item.icon">
                 <mat-icon
-                    class="fuse-horizontal-navigation-item-icon"
+                    class="uns-horizontal-navigation-item-icon"
                     [ngClass]="item.classes?.icon"
                     [svgIcon]="item.icon"></mat-icon>
             </ng-container>
 
             <!-- Title & Subtitle -->
-            <div class="fuse-horizontal-navigation-item-title-wrapper">
-                <div class="fuse-horizontal-navigation-item-title">
+            <div class="uns-horizontal-navigation-item-title-wrapper">
+                <div class="uns-horizontal-navigation-item-title">
                     <span [ngClass]="item.classes?.title">
                         {{item.title}}
                     </span>
                 </div>
                 <ng-container *ngIf="item.subtitle">
-                    <div class="fuse-horizontal-navigation-item-subtitle text-hint">
+                    <div class="uns-horizontal-navigation-item-subtitle text-hint">
                         <span [ngClass]="item.classes?.subtitle">
                             {{item.subtitle}}
                         </span>
@@ -107,9 +107,9 @@
 
             <!-- Badge -->
             <ng-container *ngIf="item.badge">
-                <div class="fuse-horizontal-navigation-item-badge">
+                <div class="uns-horizontal-navigation-item-badge">
                     <div
-                        class="fuse-horizontal-navigation-item-badge-content"
+                        class="uns-horizontal-navigation-item-badge-content"
                         [ngClass]="item.badge.classes">
                         {{item.badge.title}}
                     </div>

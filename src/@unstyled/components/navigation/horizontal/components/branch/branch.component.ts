@@ -4,32 +4,32 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, forwardRef, Inpu
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenu, MatMenuModule } from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { FuseHorizontalNavigationBasicItemComponent } from '@unstyled/components/navigation/horizontal/components/basic/basic.component';
-import { FuseHorizontalNavigationDividerItemComponent } from '@unstyled/components/navigation/horizontal/components/divider/divider.component';
-import { FuseHorizontalNavigationComponent } from '@unstyled/components/navigation/horizontal/horizontal.component';
-import { FuseNavigationService } from '@unstyled/components/navigation/navigation.service';
-import { FuseNavigationItem } from '@unstyled/components/navigation/navigation.types';
+import { UnsHorizontalNavigationBasicItemComponent } from '@unstyled/components/navigation/horizontal/components/basic/basic.component';
+import { UnsHorizontalNavigationDividerItemComponent } from '@unstyled/components/navigation/horizontal/components/divider/divider.component';
+import { UnsHorizontalNavigationComponent } from '@unstyled/components/navigation/horizontal/horizontal.component';
+import { UnsNavigationService } from '@unstyled/components/navigation/navigation.service';
+import { UnsNavigationItem } from '@unstyled/components/navigation/navigation.types';
 import { Subject, takeUntil } from 'rxjs';
 
 @Component({
-    selector       : 'fuse-horizontal-navigation-branch-item',
+    selector       : 'uns-horizontal-navigation-branch-item',
     templateUrl    : './branch.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
     standalone     : true,
-    imports        : [NgIf, NgClass, MatMenuModule, NgTemplateOutlet, NgFor, FuseHorizontalNavigationBasicItemComponent, forwardRef(() => FuseHorizontalNavigationBranchItemComponent), FuseHorizontalNavigationDividerItemComponent, MatTooltipModule, MatIconModule],
+    imports        : [NgIf, NgClass, MatMenuModule, NgTemplateOutlet, NgFor, UnsHorizontalNavigationBasicItemComponent, forwardRef(() => UnsHorizontalNavigationBranchItemComponent), UnsHorizontalNavigationDividerItemComponent, MatTooltipModule, MatIconModule],
 })
-export class FuseHorizontalNavigationBranchItemComponent implements OnInit, OnDestroy
+export class UnsHorizontalNavigationBranchItemComponent implements OnInit, OnDestroy
 {
     /* eslint-disable @typescript-eslint/naming-convention */
     static ngAcceptInputType_child: BooleanInput;
     /* eslint-enable @typescript-eslint/naming-convention */
 
     @Input() child: boolean = false;
-    @Input() item: FuseNavigationItem;
+    @Input() item: UnsNavigationItem;
     @Input() name: string;
     @ViewChild('matMenu', {static: true}) matMenu: MatMenu;
 
-    private _fuseHorizontalNavigationComponent: FuseHorizontalNavigationComponent;
+    private _unsHorizontalNavigationComponent: UnsHorizontalNavigationComponent;
     private _unsubscribeAll: Subject<any> = new Subject<any>();
 
     /**
@@ -37,7 +37,7 @@ export class FuseHorizontalNavigationBranchItemComponent implements OnInit, OnDe
      */
     constructor(
         private _changeDetectorRef: ChangeDetectorRef,
-        private _fuseNavigationService: FuseNavigationService,
+        private _unsNavigationService: UnsNavigationService,
     )
     {
     }
@@ -52,10 +52,10 @@ export class FuseHorizontalNavigationBranchItemComponent implements OnInit, OnDe
     ngOnInit(): void
     {
         // Get the parent navigation component
-        this._fuseHorizontalNavigationComponent = this._fuseNavigationService.getComponent(this.name);
+        this._unsHorizontalNavigationComponent = this._unsNavigationService.getComponent(this.name);
 
         // Subscribe to onRefreshed on the navigation component
-        this._fuseHorizontalNavigationComponent.onRefreshed.pipe(
+        this._unsHorizontalNavigationComponent.onRefreshed.pipe(
             takeUntil(this._unsubscribeAll),
         ).subscribe(() =>
         {

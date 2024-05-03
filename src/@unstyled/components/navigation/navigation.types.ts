@@ -1,6 +1,6 @@
 import { IsActiveMatchOptions, Params, QueryParamsHandling } from '@angular/router';
 
-export interface FuseNavigationItem
+export interface UnsNavigationItem
 {
     id?: string;
     title?: string;
@@ -12,7 +12,7 @@ export interface FuseNavigationItem
         | 'divider'
         | 'group'
         | 'spacer';
-    hidden?: (item: FuseNavigationItem) => boolean;
+    hidden?: (item: UnsNavigationItem) => boolean;
     active?: boolean;
     disabled?: boolean;
     tooltip?: string;
@@ -30,7 +30,7 @@ export interface FuseNavigationItem
         | string;
     exactMatch?: boolean;
     isActiveMatchOptions?: IsActiveMatchOptions;
-    function?: (item: FuseNavigationItem) => void;
+    function?: (item: UnsNavigationItem) => void;
     classes?: {
         title?: string;
         subtitle?: string;
@@ -42,20 +42,20 @@ export interface FuseNavigationItem
         title?: string;
         classes?: string;
     };
-    children?: FuseNavigationItem[];
+    children?: UnsNavigationItem[];
     meta?: any;
 }
 
-export type FuseVerticalNavigationAppearance =
+export type UnsVerticalNavigationAppearance =
     | 'default'
     | 'compact'
     | 'dense'
     | 'thin';
 
-export type FuseVerticalNavigationMode =
+export type UnsVerticalNavigationMode =
     | 'over'
     | 'side';
 
-export type FuseVerticalNavigationPosition =
+export type UnsVerticalNavigationPosition =
     | 'left'
     | 'right';

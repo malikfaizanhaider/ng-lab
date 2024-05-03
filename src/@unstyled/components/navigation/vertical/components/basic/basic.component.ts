@@ -3,26 +3,26 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnDestroy
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { IsActiveMatchOptions, RouterLink, RouterLinkActive } from '@angular/router';
-import { FuseNavigationService } from '@unstyled/components/navigation/navigation.service';
-import { FuseNavigationItem } from '@unstyled/components/navigation/navigation.types';
-import { FuseVerticalNavigationComponent } from '@unstyled/components/navigation/vertical/vertical.component';
+import { UnsNavigationService } from '@unstyled/components/navigation/navigation.service';
+import { UnsNavigationItem } from '@unstyled/components/navigation/navigation.types';
+import { UnsVerticalNavigationComponent } from '@unstyled/components/navigation/vertical/vertical.component';
 import { UnstyledUtilsService } from '@unstyled/services/utils/utils.service';
 import { Subject, takeUntil } from 'rxjs';
 
 @Component({
-    selector       : 'fuse-vertical-navigation-basic-item',
+    selector       : 'uns-vertical-navigation-basic-item',
     templateUrl    : './basic.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
     standalone     : true,
     imports        : [NgClass, NgIf, RouterLink, RouterLinkActive, MatTooltipModule, NgTemplateOutlet, MatIconModule],
 })
-export class FuseVerticalNavigationBasicItemComponent implements OnInit, OnDestroy
+export class UnsVerticalNavigationBasicItemComponent implements OnInit, OnDestroy
 {
-    @Input() item: FuseNavigationItem;
+    @Input() item: UnsNavigationItem;
     @Input() name: string;
 
     isActiveMatchOptions: IsActiveMatchOptions;
-    private _fuseVerticalNavigationComponent: FuseVerticalNavigationComponent;
+    private _unsVerticalNavigationComponent: UnsVerticalNavigationComponent;
     private _unsubscribeAll: Subject<any> = new Subject<any>();
 
     /**
@@ -30,7 +30,7 @@ export class FuseVerticalNavigationBasicItemComponent implements OnInit, OnDestr
      */
     constructor(
         private _changeDetectorRef: ChangeDetectorRef,
-        private _fuseNavigationService: FuseNavigationService,
+        private _unsNavigationService: UnsNavigationService,
         private _UnstyledUtilsService: UnstyledUtilsService,
     )
     {
@@ -59,13 +59,13 @@ export class FuseVerticalNavigationBasicItemComponent implements OnInit, OnDestr
                 : this._UnstyledUtilsService.subsetMatchOptions;
 
         // Get the parent navigation component
-        this._fuseVerticalNavigationComponent = this._fuseNavigationService.getComponent(this.name);
+        this._unsVerticalNavigationComponent = this._unsNavigationService.getComponent(this.name);
 
         // Mark for check
         this._changeDetectorRef.markForCheck();
 
         // Subscribe to onRefreshed on the navigation component
-        this._fuseVerticalNavigationComponent.onRefreshed.pipe(
+        this._unsVerticalNavigationComponent.onRefreshed.pipe(
             takeUntil(this._unsubscribeAll),
         ).subscribe(() =>
         {

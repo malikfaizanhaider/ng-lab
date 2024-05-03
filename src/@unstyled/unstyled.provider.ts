@@ -9,7 +9,7 @@ import {UnstyledPlatformService} from '@unstyled/services/platform';
 import {UnstyledUtilsService} from '@unstyled/services/utils';
 import {UnstyledSplashScreenService} from "@unstyled/services/splash-screen";
 import {SlDialog} from "@shoelace-style/shoelace";
-import {FuseConfirmationService} from "@unstyled/services/confirmation/confirmation.service";
+import {UnsConfirmationService} from "@unstyled/services/confirmation/confirmation.service";
 
 
 export type UnstyledProviderConfig = {
@@ -28,7 +28,7 @@ export const provideUnstyled = (config: UnstyledProviderConfig): Array<Provider 
     importProvidersFrom(SlDialog),
     {
       provide: ENVIRONMENT_INITIALIZER,
-      useValue: () => inject(FuseConfirmationService),
+      useValue: () => inject(UnsConfirmationService),
       multi: true,
     },
     provideHttpClient(withInterceptors([unstyledLoadingInterceptor])),
