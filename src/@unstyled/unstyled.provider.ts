@@ -1,4 +1,4 @@
-import {provideHttpClient, withInterceptors} from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import {ENVIRONMENT_INITIALIZER, EnvironmentProviders, importProvidersFrom, inject, Provider} from '@angular/core';
 
 import {UnstyledConfig} from '@unstyled/services/config';

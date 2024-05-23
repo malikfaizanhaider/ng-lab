@@ -45,6 +45,15 @@ export class AppComponent implements OnInit, OnDestroy {
               private _docsMediaWatcherService: UnstyledMediaWatcherService,) {
   }
 
+  ngOnInit(): void {
+    this.inits();
+  }
+
+  ngOnDestroy(): void {
+    this._unsubscribeAll.next(null);
+    this._unsubscribeAll.complete();
+  }
+
   /**
    * Toggle the drawer mode
    */
@@ -68,21 +77,16 @@ export class AppComponent implements OnInit, OnDestroy {
     this.drawerOpened = opened;
   }
 
-  ngOnInit(): void {
-    this.inits();
-  }
-
-  ngOnDestroy(): void {
-    this._unsubscribeAll.next(null);
-    this._unsubscribeAll.complete();
-  }
-
   private inits(): void {
     this._docsMediaWatcherService.onMediaChange$
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe(({matchingAliases}) => {
-        this.isScreenSmall = !matchingAliases.includes('large');
+        this.isScreenSmall = !matchingAliases.includes('medium');
         console.log('this.isScreenSmall', this.isScreenSmall);
+
+        this.drawerOpened = !this.isScreenSmall;
+
+        
       });
   }
 }

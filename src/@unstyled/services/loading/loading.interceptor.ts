@@ -1,4 +1,4 @@
-import {HttpEvent, HttpHandlerFn, HttpRequest} from '@angular/common/http';
+import { HttpEvent, HttpHandlerFn, HttpRequest } from '@angular/common/http';
 import {inject} from '@angular/core';
 import {UnstyledLoadingService} from '@unstyled/services/loading/loading.service';
 import {finalize, Observable, take} from 'rxjs';
