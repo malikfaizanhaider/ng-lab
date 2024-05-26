@@ -42,7 +42,7 @@ export class AppComponent implements OnInit, OnDestroy {
   private _unsubscribeAll: Subject<any> = new Subject<any>();
 
   constructor(private _unsNavigationService: UnsNavigationService,
-              private _docsMediaWatcherService: UnstyledMediaWatcherService,) {
+              private _docsMediaWatcherService: UnstyledMediaWatcherService) {
   }
 
   ngOnInit(): void {
@@ -83,10 +83,7 @@ export class AppComponent implements OnInit, OnDestroy {
       .subscribe(({matchingAliases}) => {
         this.isScreenSmall = !matchingAliases.includes('medium');
         console.log('this.isScreenSmall', this.isScreenSmall);
-
         this.drawerOpened = !this.isScreenSmall;
-
-        
       });
   }
 }

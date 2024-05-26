@@ -10,6 +10,7 @@ import {UnstyledUtilsService} from '@unstyled/services/utils';
 import {UnstyledSplashScreenService} from "@unstyled/services/splash-screen";
 import {SlDialog} from "@shoelace-style/shoelace";
 import {UnsConfirmationService} from "@unstyled/services/confirmation/confirmation.service";
+import {BodyService} from "@unstyled/services/body/body.service";
 
 
 export type UnstyledProviderConfig = {
@@ -55,6 +56,11 @@ export const provideUnstyled = (config: UnstyledProviderConfig): Array<Provider 
     {
       provide: ENVIRONMENT_INITIALIZER,
       useValue: () => inject(UnstyledUtilsService),
+      multi: true,
+    },
+    {
+      provide: ENVIRONMENT_INITIALIZER,
+      useValue: () => inject(BodyService),
       multi: true,
     },
   ];

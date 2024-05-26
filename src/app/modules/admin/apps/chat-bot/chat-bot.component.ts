@@ -11,7 +11,7 @@ import {CdkFixedSizeVirtualScroll, CdkVirtualForOf, CdkVirtualScrollViewport} fr
  * It also contains an array of numbers from 1 to 100.
  */
 @Component({
-  selector: 'app-chat-bot',
+  selector: '[app-chat-bot]',
   standalone: true,
   imports: [
     UnstyledDrawerComponent,

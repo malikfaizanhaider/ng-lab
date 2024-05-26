@@ -3,7 +3,7 @@ import {FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators} from
 import {JsonPipe, NgForOf, NgIf} from "@angular/common";
 
 @Component({
-  selector: 'app-form',
+  selector: '[app-form]',
   standalone: true,
   imports: [
     ReactiveFormsModule,

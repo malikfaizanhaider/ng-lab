@@ -1,73 +1,41 @@
 <div class="uns-page">
-  <div class="uns-container c1">
-    <div class="uns-app-header">
-      <header>
-        <div class="uns-app-header-brand">
-          Header
-        </div>
-        <div class="uns-app-header-actions">
-          <sl-button
-            disabled="isScreenSmall"
-            size="small"
-            (click)="toggleDrawerMode();">
-            {{ drawerMode === 'over' ? 'Drawer mode: over' : 'Drawer mode: side'}}
-          </sl-button>
-
-          <sl-button
-            size="small"
-            class="ml-4"
-            (click)="toggleDrawerOpen()">
-            {{ drawerOpened ? 'Drawer opened' : 'Drawer closed'}}
-          </sl-button>
-        </div>
-      </header>
-    </div>
-    <div class="uns-container c2">
-      <div class="uns-aside">
-        <unstyled-drawer
-          class="uns-nav-drawer"
-          [fixed]="true"
-          [opened]="drawerOpened"
-          [mode]="isScreenSmall ? 'over' : drawerMode"
-          (openedChanged)="drawerOpenedChanged($event)">
-
-          <div drawer-header>
-            <div class="uns-nav-drawer-header">
-              <sl-input name="Search" placeholder="Search" />
+    <div class="uns-container c1">
+        <div class="uns-container c2">
+            <div class="uns-aside">
+                <unstyled-drawer
+                        class="uns-nav-drawer"
+                        [fixed]="true"
+                        [opened]="drawerOpened"
+                        [mode]="isScreenSmall ? 'over' : drawerMode"
+                        (openedChanged)="drawerOpenedChanged($event)">
+                    <div class="example-menu" cdkMenu>
+                        <button class="example-menu-item" [routerLinkActive]="'active'" routerLink="home" cdkMenuItem>
+                            Home
+                        </button>
+                        <button class="example-menu-item" [routerLinkActive]="'active'" routerLink="apps/chatbot"
+                                cdkMenuItem>ChatBoat
+                        </button>
+                        <button class="example-menu-item" [routerLinkActive]="'active'" routerLink="auth/login"
+                                cdkMenuItem>Login
+                        </button>
+                        <button class="example-menu-item" [routerLinkActive]="'active'" routerLink="auth/registration"
+                                cdkMenuItem>Registration
+                        </button>
+                        <button class="example-menu-item" [routerLinkActive]="'active'"
+                                routerLink="auth/forgot-password" cdkMenuItem>Forgot Password
+                        </button>
+                        <button class="example-menu-item" [routerLinkActive]="'active'" routerLink="lab/form"
+                                cdkMenuItem>Forms
+                        </button>
+                        <button class="example-menu-item" [routerLinkActive]="'active'" routerLink="lab/gsap"
+                                cdkMenuItem>Gsap
+                        </button>
+                    </div>
+                </unstyled-drawer>
             </div>
-          </div>
-
-          <div class="example-menu" cdkMenu>
-            <button class="example-menu-item" [routerLinkActive]="'active'" routerLink="home" cdkMenuItem>Home</button>
-            <button class="example-menu-item" [routerLinkActive]="'active'" routerLink="apps/chatbot" cdkMenuItem>ChatBoat</button>
-            <button class="example-menu-item" [routerLinkActive]="'active'" routerLink="auth/login" cdkMenuItem>Login</button>
-            <button class="example-menu-item" [routerLinkActive]="'active'" routerLink="auth/registration" cdkMenuItem>Registration</button>
-            <button class="example-menu-item" [routerLinkActive]="'active'" routerLink="auth/forgot-password" cdkMenuItem>Forgot Password</button>
-            <button class="example-menu-item" [routerLinkActive]="'active'" routerLink="lab/form" cdkMenuItem>Forms</button>
-          </div>
-
-          <div drawer-footer>
-            <div>
-              <sl-avatar label="User avatar"></sl-avatar>
-              User
+            <div class="uns-main">
+                <router-outlet></router-outlet>
             </div>
-          </div>
-        </unstyled-drawer>
-      </div>
-      <div class="uns-main">
-        <button
-          [disabled]="isScreenSmall"
-          (click)="toggleDrawerMode();">
-          {{ drawerMode === 'over' ? 'Drawer mode: over' : 'Drawer mode: side'}}
-        </button>
-
-        <button
-          class="ml-4"
-          (click)="toggleDrawerOpen()">
-          {{ drawerOpened ? 'Drawer opened' : 'Drawer closed'}}
-        </button>
-        <router-outlet></router-outlet>
-      </div>
+        </div>
     </div>
-  </div>
 </div>
