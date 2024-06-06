@@ -1,4 +1,5 @@
 :host {
+  position: relative;
   --color-shockingly-green: #0ae448;
   --color-just-black: #0e100f;
   --color-surface-white: #fffce1;
@@ -51,27 +52,33 @@
   --ease-in-out-quart: cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
-.box-container {
-  top: 50vh;
+
+#smooth-wrapper {
   position: relative;
-  display: flex;
-  justify-content: center;
-  flex: 1;
-  width: 100%;
-  overflow: visible;
+  overflow: hidden;
+  height: 100vh;
 }
 
-.box {
-  font-size: 28px;
-  font-weight: 700;
-  color: white;
+#smooth-content {
+  position: relative;
+}
+
+.box-a, .box-b, .box-c, .box-d {
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100px;
-  width: 15%;
-  margin: 10px;
-  border-radius: 6px;
+  font-size: 2rem;
+  background-color: lightgray;
+  border: 1px solid #000;
+}
+
+.button {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
 }
 
 .purple {

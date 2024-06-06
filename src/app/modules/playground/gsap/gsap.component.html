@@ -1,7 +1,9 @@
-<div #main class="box-container">
-    <div class="box green" data-speed="0.25">0.25</div>
-    <div class="box purple" data-speed="0.4">0.4</div>
-    <div class="box orange" data-speed="0">0</div>
-    <div class="box red" data-speed="1">1</div>
-    <div class="box blue" data-speed="0.75">0.75</div>
+<div id="smooth-wrapper">
+    <div id="smooth-content">
+        <button (click)="this.scrollToBoxC()" class="button">Scroll to Box C</button>
+        <section class="box-a purple">Box A</section>
+        <section class="box-b green">Box B</section>
+        <section class="box-c orange" data-speed="1" data-lag="0.5">Box C</section>
+        <section class="box-d red">Box D</section>
+    </div>
 </div>

@@ -1,7 +1,8 @@
 import {AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {NgForOf} from "@angular/common";
 import {gsap} from 'gsap';
 import {ScrollTrigger} from 'gsap/ScrollTrigger';
-import {NgForOf} from "@angular/common";
+import {ScrollSmoother} from "gsap/ScrollSmoother";
 
 @Component({
     selector: '[app-gsap]',
@@ -12,45 +13,52 @@ import {NgForOf} from "@angular/common";
     templateUrl: './gsap.component.html',
     styleUrl: './gsap.component.scss'
 })
-export class GsapComponent implements OnInit, AfterViewInit, OnDestroy {
+export class GsapComponent implements AfterViewInit, OnDestroy {
+    @ViewChild('wrapper', {static: true}) wrapper: ElementRef<HTMLDivElement>;
+    @ViewChild('content', {static: true}) content: ElementRef<HTMLDivElement>;
 
-    @ViewChild('main', {static: true}) main: ElementRef<HTMLDivElement>;
-
-    numbers: number[] = Array.from({length: 100}, (_, i) => i + 1);
-
-    private scrollTriggerInstance: gsap.core.Tween = null;
+    private smoother: ScrollSmoother;
+    private pinTrigger: ScrollTrigger;
 
     constructor() {
-        gsap.registerPlugin(ScrollTrigger);
-    }
-
-    ngOnInit() {
-
+        gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
     }
 
     ngAfterViewInit(): void {
-        this.scrollTrigger1();
+        this.initScrollSmoother();
+        this.initScrollTrigger();
     }
 
-    /**
-     * scrollTrigger1 Example 1
-     */
-    scrollTrigger1() {
-        this.scrollTriggerInstance = gsap.to("[data-speed]", {
-            y: (i, el) => (1 - parseFloat(el.getAttribute("data-speed"))) * ScrollTrigger.maxScroll(window),
-            ease: "none",
-            scrollTrigger: {
-                start: 0,
-                end: "max",
-                invalidateOnRefresh: true,
-                scrub: 0
-            }
+    initScrollSmoother() {
+        ScrollTrigger.normalizeScroll(true);
+
+        this.smoother = ScrollSmoother.create({
+            smooth: 2,
+            effects: true,
+            normalizeScroll: true
         });
     }
 
+    initScrollTrigger() {
+        this.pinTrigger = ScrollTrigger.create({
+            trigger: ".box-c",
+            pin: true,
+            start: "center center",
+            end: "+=300",
+            markers: true
+        });
+    }
+
+    scrollToBoxC() {
+        this.smoother.scrollTo(".box-c", true, "center center");
+    }
+
     ngOnDestroy() {
-        if (this.scrollTriggerInstance) {
-            this.scrollTriggerInstance.kill();
+        if (this.smoother) {
+            this.smoother.kill();
+        }
+        if (this.pinTrigger) {
+            this.pinTrigger.kill();
         }
     }
 }
