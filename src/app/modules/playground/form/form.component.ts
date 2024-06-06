@@ -1,6 +1,7 @@
 import {Component, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {JsonPipe, NgForOf, NgIf} from "@angular/common";
+import {PageHeadingComponent} from "../../../core/page-heading/page-heading.component";
 
 @Component({
   selector: '[app-form]',
@@ -9,7 +10,8 @@ import {JsonPipe, NgForOf, NgIf} from "@angular/common";
     ReactiveFormsModule,
     NgForOf,
     JsonPipe,
-    NgIf
+    NgIf,
+    PageHeadingComponent
   ],
   templateUrl: './form.component.html',
   styleUrl: './form.component.scss',
