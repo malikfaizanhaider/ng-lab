@@ -1,9 +1,15 @@
 <div id="smooth-wrapper">
     <div id="smooth-content">
-        <button (click)="this.scrollToBoxC()" class="button">Scroll to Box C</button>
-        <section class="box-a purple">Box A</section>
-        <section class="box-b green">Box B</section>
-        <section class="box-c orange" data-speed="1" data-lag="0.5">Box C</section>
-        <section class="box-d red">Box D</section>
+        <section class="box box-a purple">
+          <button (click)="this.scrollToBoxC()" class="button">Scroll to Box C</button>
+          <div #text class="split-text">
+            This is a sample text to demonstrate SplitText.
+          </div>
+        </section>
+        <section class="box box-b green">Box B</section>
+        <section class="box box-c orange"  data-lag="0.5">
+          Box C
+        </section>
+        <section class="box box-d red">Box D</section>
     </div>
 </div>
